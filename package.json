@@ -1,0 +1,15 @@
+{
+  "name": "uranus_web_application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/alyamaniedrees/uranus_web_application.git"
+  },
+  "author": "UranusTeam",
+  "license": "ISC"
+}
