@@ -14,7 +14,7 @@ export const Login = (props) => {
 
   let onSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:4000/user/login", login)
+    Axios.post("http://localhost:3005/api/auth/login", login)
       .then((res) => {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);

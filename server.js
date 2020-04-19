@@ -19,7 +19,7 @@ app.use(express.json());
 // => = > == = =
 // Routes for API
 //===================
-app.use("/api/auth/", require("./routes/auth.routes"));
+app.use("/api/auth", require("./routes/auth.routes"));
 
 // 404 Routes
 //===================

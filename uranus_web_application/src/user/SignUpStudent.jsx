@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Form, Col, Button, Alert } from "react-bootstrap";
 import Axios from "axios";
 
-export const SingUp = (props) => {
+export const SignUpStudent = (props) => {
   const [user, setUser] = useState({}); // user info
   const [register, setRegister] = useState(false); // to show aleart
 
@@ -11,14 +11,13 @@ export const SingUp = (props) => {
     setUser({ ...user, [name]: value });
   };
 
-  
   // to add the user info to database
   let onSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:4000/user/register", user)
+    Axios.post("http://localhost:3005/api/auth/registerStudent", user)
       .then((res) => {
         if (res.data.register) {
-        //   props.history.push("/login");
+          props.history.push("/login");
         } else {
           setRegister(true);
           setTimeout(() => {
@@ -72,22 +71,6 @@ export const SingUp = (props) => {
                   type="password"
                   placeholder="Password"
                   name="password"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Major</Form.Label>
-                <Form.Control
-                  placeholder="Major"
-                  name="major"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Education</Form.Label>
-                <Form.Control
-                  placeholder="Education"
-                  name="education"
                   onChange={(e) => onChangeInput(e)}
                 />
               </Form.Group>

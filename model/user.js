@@ -20,19 +20,26 @@ const userSchema = new mongoose.Schema(
     },
     major: {
       type: String,
-      required: true,
     },
     education: {
       type: String,
-      required: true,
     },
-    userType: {
-      type: String,
-      required: true,
+    // userType: {
+    //   type: String,
+    //   enum: ["teacher", "student", "admin"],
+    //   default: "teacher",
+    // },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
-    password: {
-      type: String,
-      required: true,
+    isTeacher: {
+      type: Boolean,
+      default: false,
+    },
+    isStudent: {
+      type: Boolean,
+        default: false
     },
   },
   { timestamps: true }
