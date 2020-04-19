@@ -43,6 +43,9 @@ export default function Navb(props) {
           <Nav.Link as={Link} to="#">
             Contact
           </Nav.Link>
+          <Nav.Link as={Link} to="/course/add">
+            Add Course
+          </Nav.Link>
         </Nav>
         <Nav>{authNavDetails}</Nav>
       </Navbar>
