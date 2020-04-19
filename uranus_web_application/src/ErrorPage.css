@@ -1,0 +1,10 @@
+.ErrorPage {
+  color: black !important;
+  height: 100vh;
+  text-align: center;
+  padding-top: 4em;
+}
+
+.ErrorPage h1 {
+  font-size: 15em;
+}
