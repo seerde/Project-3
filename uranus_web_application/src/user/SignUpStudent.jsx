@@ -14,9 +14,10 @@ export const SignUpStudent = (props) => {
   // to add the user info to database
   let onSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3005/api/auth/registerStudent", user)
+    Axios.post(`http://localhost:3005/api/auth/registerStudent`, user)
       .then((res) => {
         if (res.data.register) {
+          console.log(props.history);
           props.history.push("/login");
         } else {
           setRegister(true);

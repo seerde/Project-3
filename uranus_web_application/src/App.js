@@ -3,8 +3,11 @@ import Home from "./home/Home";
 import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
+import Register from "./user/Register";
+import Navb from "./navbar/Navb";
 import { Switch, Route, Redirect } from "react-router-dom";
-import "./App.css";
+import { Alert } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import jwt_decode from "jwt-decode";
 
 export default class App extends Component {
@@ -12,6 +15,7 @@ export default class App extends Component {
   state = {
     user: null,
     isLogin: false,
+    message: "",
   };
 
   componentDidMount() {
@@ -33,9 +37,29 @@ export default class App extends Component {
       });
     }
   };
+
+  logoutHandler = (e) => {
+    e.preventDefault();
+    //delete tokem and reset state
+    localStorage.removeItem("token");
+    this.setState({
+      isLogin: false,
+      user: null,
+      message: null,
+    });
+  };
+
   render() {
+    const { isLogin, message, user } = this.state;
+
+    const errorMessage = message ? (
+      <Alert variant="danger">{message}</Alert>
+    ) : null;
+
     return (
       <div>
+        <Navb user={user} logout={this.logoutHandler} />
+        {errorMessage}
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
 
@@ -43,8 +67,9 @@ export default class App extends Component {
             path="/login"
             render={(props) => <Login {...props} userLogin={this.userLogin} />}
           />
-          <Route path="/registerTeacher" component={SignUpTeacher} />
-          <Route path="/registerStudent" component={SignUpStudent} />
+          {/* <Route path="/registerTeacher" component={SignUpTeacher} /> */}
+          {/* <Route path="/registerStudent" component={SignUpStudent} /> */}
+          <Route path="/register" component={Register} />
           {/* <Route path="/Allmovie/:id" component={OneMovei} /> */}
           {this.state.isLogin ? (
             <>
