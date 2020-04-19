@@ -1,28 +1,32 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-const mongoose = require('mongoose')
+// load environment variables
+//=========================
+require("dotenv").config();
+//grab our dependencies
+//=================
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
-mongoose.connect('mongodb://localhost/auth',{useUnifiedTopology : true , useNewUrlParser : true}  )
-.then(res => console.log("mongodb is connected"))
-.catch(err => console.log(err))
+//connect mongodb
+//=================
+require("./config/db");
 
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+// middlewares npm i cors
+// ===============
+app.use(cors());
+app.use(express.json());
 
+// => = > == = =
+// Routes for API
+//===================
+app.use("/api/auth/", require("./routes/auth.routes"));
 
-app.use('/user' , require('./route/user'))
+// 404 Routes
+//===================
+app.get("*", (req, res) =>
+    res.json({ error: "Are you lost?", status: 404 }).status(404)
+);
 
-
-// app.get('/' , (req , res) =>{
-
-//     res.send("test")
-// })
-
-
-
-
-
-
-app.listen(4000 , ()=> console.log('server run on 4000'))
+app.listen(process.env.PORT, () =>
+    console.log(`unleashed on ${process.env.PORT}`)
+);
