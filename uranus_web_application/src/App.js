@@ -3,6 +3,7 @@ import Home from "./home/Home";
 import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
+import AddCourse from "./course/AddCourse"
 import Register from "./user/Register";
 import Navb from "./navbar/Navb";
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -62,7 +63,7 @@ export default class App extends Component {
         {errorMessage}
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
-
+          <Route path="/course/add" render={() => <AddCourse />} />
           <Route
             path="/login"
             render={(props) => <Login {...props} userLogin={this.userLogin} />}
