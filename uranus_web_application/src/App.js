@@ -10,6 +10,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jwt_decode from "jwt-decode";
+import MyInformationTeacher from "./user/MyInformationTeacher";
 
 export default class App extends Component {
   // const [isAuth, setIsAuth] = useState(false);
@@ -64,6 +65,11 @@ export default class App extends Component {
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
           <Route path="/course/add" render={() => <AddCourse />} />
+          <Route
+            path="/MyInformationTeacher"
+            component={() => <MyInformationTeacher user={user} />}
+          />
+          } />
           <Route
             path="/login"
             render={(props) => <Login {...props} userLogin={this.userLogin} />}
