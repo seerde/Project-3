@@ -5,6 +5,32 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+router.get("/", async (req, res) => {
+  try {
+    let user = await User.find();
+
+    if (!user) throw err;
+
+    res.json({ user }).status(200);
+  }
+  catch (err) {
+    res.json({ message: "No user" }).status(400);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    let user = await User.findById(req.params.id);
+
+    if (!user) throw err;
+
+    res.json({ user }).status(200);
+  }
+  catch (err) {
+    res.json({ message: "No user" }).status(400);
+  }
+});
+
 // user/
 router.post("/registerTeacher", (req, res) => {
   const newUser = {

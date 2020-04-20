@@ -4,6 +4,8 @@ const User = require("../model/user");
 const Content = require("../model/content");
 const isLoggedIn = require("../config/config");
 
+"http://localhost:3005/api/course/update/"
+
 router.get("/", async (req, res) => {
   try {
     let courses = await Courses.find({});
