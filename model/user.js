@@ -24,25 +24,21 @@ const userSchema = new mongoose.Schema(
     education: {
       type: String,
     },
-    // userType: {
-    //   type: String,
-    //   enum: ["teacher", "student", "admin"],
-    //   default: "teacher",
-    // },
-    isAdmin: {
-      type: Boolean,
-      default: false,
+    userType: {
+      type: String,
+      enum: ["teacher", "student", "admin"],
+      default: "teacher",
     },
-    isTeacher: {
-      type: Boolean,
-      default: false,
-    },
-    isStudent: {
-      type: Boolean,
-        default: false
-    },
+    courses: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course",
+      },
+    ],
   },
   { timestamps: true }
 );
-const User = mongoose.model("user", userSchema);
+
+const User = mongoose.model("User", userSchema);
+
 module.exports = User;

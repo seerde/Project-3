@@ -14,7 +14,7 @@ router.post("/registerTeacher", (req, res) => {
     password: req.body.password,
     major: req.body.major,
     education: req.body.education,
-    isTeacher: req.body.isTeacher = true,
+    userType: "teacher",
   };
   console.log();
   // res.send(newUser)
@@ -43,7 +43,7 @@ router.post("/registerStudent", (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password,
-    isStudent: req.body.isStudent = true,
+    userType: "student",
   };
   console.log();
   // res.send(newUser)
@@ -70,7 +70,6 @@ router.post("/login", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   };
-
   User.findOne({ email: loginUser.email })
     .then((user) => {
       //if email exist
@@ -79,7 +78,9 @@ router.post("/login", (req, res) => {
         if (bcrypt.compareSync(loginUser.password, user.password)) {
           user.password = undefined;
           let payload = { user };
-          let token = jwt.sign(payload, process.env.SECRET , { expiresIn: 1500 });
+          let token = jwt.sign(payload, process.env.SECRET, {
+            expiresIn: 1500,
+          });
 
           res.json({ token, login: true });
 
