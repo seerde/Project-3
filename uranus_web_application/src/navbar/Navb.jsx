@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export default function Navb(props) {
   const authNavDetails = props.user ? (
     <>
-      <Nav.Link as={Link} to="/profile">
-        {props.user.first_name}
+      <Nav.Link as={Link} to="/MyInformationTeacher">
+        {props.user.firstName}
       </Nav.Link>
       <Nav.Link as={Link} to="/logout" onClick={props.logout}>
         Logout

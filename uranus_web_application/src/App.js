@@ -6,6 +6,7 @@ import { SignUpStudent } from "./user/SignUpStudent";
 import AddCourse from "./course/AddCourse"
 import Register from "./user/Register";
 import Navb from "./navbar/Navb";
+import PrivateRoute from "./PrivateRoute";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -65,30 +66,23 @@ export default class App extends Component {
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
           <Route path="/course/add" render={() => <AddCourse />} />
-          <Route
-            path="/MyInformationTeacher"
-            component={() => <MyInformationTeacher user={user} />}
-          />
-          } />
+
           <Route
             path="/login"
             render={(props) => <Login {...props} userLogin={this.userLogin} />}
+          />
+          <PrivateRoute
+            exact
+            path="/MyInformationTeacher"
+            isLogin={isLogin}
+            user={user}
+            component={MyInformationTeacher}
           />
           {/* <Route path="/registerTeacher" component={SignUpTeacher} /> */}
           {/* <Route path="/registerStudent" component={SignUpStudent} /> */}
           <Route path="/register" component={Register} />
           {/* <Route path="/Allmovie/:id" component={OneMovei} /> */}
-          {this.state.isLogin ? (
-            <>
-              {" "}
-              {/* <Route exact path="/Allmovie" component={Allmovies} />{" "} */}
-            </>
-          ) : (
-            <>
-              {" "}
-              <Redirect to="/login" />{" "}
-            </>
-          )}
+
         </Switch>
       </div>
     );
