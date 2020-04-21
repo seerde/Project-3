@@ -18,8 +18,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+          {/* <Route path="/content/add" render={() => <AddContent course={course}/>} /> */}
+
+
 router.post("/add/:id", isLoggedIn, async (req, res) => {
-  let { title, subject, description } = req.body;
+  let { title, link, description } = req.body;
 
   try {
     let course = await Courses.findById(req.params.id);
@@ -28,7 +31,7 @@ router.post("/add/:id", isLoggedIn, async (req, res) => {
 
     let content = new Contents({
       title,
-      subject,
+      link,
       description,
       course,
     });
@@ -44,6 +47,33 @@ router.post("/add/:id", isLoggedIn, async (req, res) => {
     res.json({ message: "unable to add new content!", err: err }).status(400);
   }
 });
+
+// router.post("/add", isLoggedIn, async (req, res) => {
+//   let { title, link, description } = req.body;
+
+//   try {
+//     let course = await Courses.findById(req.params.id);
+
+//     if (course.teacher._id.toString() !== req.user._id.toString()) throw err;
+
+//     let content = new Contents({
+//       title,
+//       link,
+//       description,
+//       course,
+//     });
+//     let contentSaved = await content.save();
+
+//     course = await Courses.findById(req.params.id);
+
+//     course.contents.push(contentSaved);
+//     let courseContentSaved = await course.save();
+
+//     res.json({ content: contentSaved, course: courseContentSaved }).status(200);
+//   } catch (err) {
+//     res.json({ message: "unable to add new content!", err: err }).status(400);
+//   }
+// });
 
 router.put("/update/:id", isLoggedIn, async (req, res) => {
   let { title, subject, description } = req.body;

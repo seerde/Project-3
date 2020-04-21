@@ -1,5 +1,5 @@
 /* register page */
-.card-register2 {
+.card-register {
   background-color: #595959;
   border-radius: 8px;
   color: #fff;
@@ -61,12 +61,11 @@
 }
 
 .title {
-  font-size: 5em;
+  font-size: 2em;
   font-weight: 500;
   margin: 0;
   color: #adebeb;
   margin-bottom: 3%;
-
 }
 
 .majors-card {
@@ -75,7 +74,7 @@
   margin: 20px;
 }
 
-.majors-card-button{
+.majors-card-button {
   background-color: teal;
 }
 
@@ -88,11 +87,9 @@
   display: block;
 }
 
-
 /* footer */
 .footer {
   text-align: center;
-
 }
 
 .row {
@@ -107,7 +104,7 @@
   text-align: center;
   padding-top: 2%;
   margin-bottom: 0;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,19 +147,40 @@
     transition: all 0.2s linear; */
 }
 
-.copyright {
-  /* background-color: thistle; */
-}
-
-.content-center{
-width: 100%;
-height: 60%;
+/* .content-center {
+  width: 100%;
+  height: 60%;
   display: flex;
   justify-content: center;
   padding-top: 1%;
 }
 
-Card.Body{
-  background-color: violet;
-
+.card-addCourse {
+  background-color: #595959;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 400px;
+  margin: 10%;
+  min-height: 400px;
+  padding: 30px;
 }
+
+.my-information-row {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+}
+
+.dashboard{
+  background-color: #595959;
+}
+
+.dashboard-title{
+  color: #adebeb;
+}
+
+.information__container{
+    background-color: #eceeef;
+} */

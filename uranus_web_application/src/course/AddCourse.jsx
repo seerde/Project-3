@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
+// import { Form, Row, Col, Button } from "react-bootstrap";
+import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 // import React, { Component } from 'react'
 import Axios from "axios";
+
+
 export const AddCourse = (props) => {
   const [course, setCourse] = useState({});
   let onChangeInput = ({ target: { name, value } }) => {
@@ -29,7 +32,7 @@ export const AddCourse = (props) => {
   //api/course/add
   return (
     <div>
-      <Form className="mt-5">
+      {/* <Form className="mt-5">
         <Row className="justify-content-center mt-5">
           <Col md={8}>
             <Form.Row>
@@ -80,7 +83,74 @@ export const AddCourse = (props) => {
             </Button>
           </Col>
         </Row>
-      </Form>
+      </Form> */}
+
+      <div
+        className="page-header"
+        style={{
+          backgroundImage:
+            "url(" + require("../assets/img/background2.jpg") + ")",
+        }}
+      >
+        <div className="filter" />
+        <Container>
+          <Row>
+            <Col className="ml-auto mr-auto" lg="4">
+              <Card className="card-register ml-auto mr-auto">
+                <h3 className="title mx-auto">Add Course</h3>
+                <Form className="register-form">
+                  <label>Course Name</label>
+                  <Input
+                    placeholder="Course Name"
+                    type="text"
+                    name="courseName"
+                    onChange={(e) => onChangeInput(e)}
+                  />
+
+                  <label>Major</label>
+                  <Input
+                    placeholder="major"
+                    type="text"
+                    name="major"
+                    onChange={(e) => onChangeInput(e)}
+                  />
+
+                  <label>Duration</label>
+                  <Input
+                    placeholder="Duration"
+                    name="duration"
+                    type="number"
+                    onChange={(e) => onChangeInput(e)}
+                  />
+
+                  <label>Description</label>
+                  <Input
+                    placeholder="Description"
+                    as="textarea"
+                    name="description"
+                    onChange={(e) => onChangeInput(e)}
+                  />
+                  <Button
+                    block
+                    className="btn-round"
+                    color="danger"
+                    type="submit"
+                    onClick={(e) => onSubmit(e)}
+                  >
+                    Add Course
+                  </Button>
+                </Form>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+        <div className="footer register-footer text-center">
+          <h6>
+            © {new Date().getFullYear()}, made with{" "}
+            <i className="fa fa-heart heart" /> by Uranus Group
+          </h6>
+        </div>
+      </div>
     </div>
   );
 };

@@ -30,21 +30,27 @@ export default class MyInformationTeacher extends Component {
   render() {
     const { user, logout } = this.props;
     return (
-      <div>
-        <h1 className="dashboard">Dashboard</h1>
+      <div className="dashboard">
+        <h1 className="dashboard-title">Dashboard</h1>
         <Container className="information__container">
           <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
             <Row>
               <Col sm={4}>
                 <ListGroup>
                   <ListGroup.Item action href="#link1">
-                    User Information
+                    My Information
                   </ListGroup.Item>
                   <ListGroup.Item action href="#link2">
                     Update Information
                   </ListGroup.Item>
                   <ListGroup.Item action href="#link3">
-                    Update Email and Password
+                    Change Email and Password
+                  </ListGroup.Item>
+                  <ListGroup.Item action href="#link4">
+                    My Courses
+                  </ListGroup.Item>
+                  <ListGroup.Item action href="#link5">
+                    Add Course
                   </ListGroup.Item>
                   <ListGroup.Item action href="#link4">
                     Show Courses
