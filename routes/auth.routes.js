@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../model/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const isLoggedIn = require("../config/config");
 require("dotenv").config();
 
 router.get("/", async (req, res) => {
@@ -12,8 +13,7 @@ router.get("/", async (req, res) => {
     if (!user) throw err;
 
     res.json({ user }).status(200);
-  }
-  catch (err) {
+  } catch (err) {
     res.json({ message: "No user" }).status(400);
   }
 });
@@ -25,8 +25,7 @@ router.get("/:id", async (req, res) => {
     if (!user) throw err;
 
     res.json({ user }).status(200);
-  }
-  catch (err) {
+  } catch (err) {
     res.json({ message: "No user" }).status(400);
   }
 });
@@ -122,32 +121,38 @@ router.post("/login", (req, res) => {
     })
     .catch((err) => res.json(err));
 });
-// router.put("/updateteachr/:id", isLoggedIn, async (req, res) => {
-//   const update = {
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     email: req.body.email,
-//     password: req.body.password,
-    
-//     education: req.body.education,
-    
-//   };
-//   console.log("update")
-//   console.log(req.user);
-//   console.log(req.body);
-//   let inputUser = { ...req.body };
-//   try {
-//     inputUser.password = await bcrypt.hash(req.body.password, 10);
-//     let user = await User.findByIdAndUpdate(req.user.id, inputUser);
 
-//     if (!user) throw error;
+router.put("/updateteachr/:id", isLoggedIn, async (req, res) => {
+  // const update = {
+  //   firstName: req.body.firstName,
+  //   lastName: req.body.lastName,
+  //   email: req.body.email,
+  //   password: req.body.password,
+  //   education: req.body.education,
+  // };
 
-//     res.status(200).json({ message: "User Updated!" });
-//   } catch (error) {
-//     res.status(400).json({ message: "something went wrong!" });
-//   }
-//   //
-// });
+  let inputUser = { ...req.body };
 
+  try {
+    inputUser.password = await bcrypt.hash(req.body.password, 10);
+
+    let user = await User.findById(req.params.id);
+
+    user.firstName = inputUser.firstName;
+    user.lastName = inputUser.lastName;
+    user.email = inputUser.email;
+    user.password = inputUser.password;
+    user.education = inputUser.education;
+
+    let userSaved = await user.save();
+
+    if (!userSaved) throw error;
+
+    res.status(200).json({ message: "User Updated!", userSaved });
+  } catch (error) {
+    res.status(400).json({ message: "something went wrong!" });
+  }
+  //
+});
 
 module.exports = router;

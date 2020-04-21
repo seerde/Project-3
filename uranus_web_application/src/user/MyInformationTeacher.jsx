@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class MyInformationTeacher extends Component {
   state = {
@@ -31,8 +32,9 @@ export default class MyInformationTeacher extends Component {
               <h4>{this.state.teacherInfo.email}</h4>
               <h4>{this.state.teacherInfo.major}</h4>
               <h4>{this.state.teacherInfo.education}</h4>
-              <Button>Edit informations</Button>
-
+              <Button as={Link} to={"/EditInformationsTeacher"}>
+                Edit informations
+              </Button>
             </Col>
           </Row>
         </Container>

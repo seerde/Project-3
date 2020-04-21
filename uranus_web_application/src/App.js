@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import Home from "./home/Home";
-import { Login } from "./user/Login.jsx";
-import { SignUpTeacher } from "./user/SignUpTeacher";
-import { SignUpStudent } from "./user/SignUpStudent";
-import AddCourse from "./course/AddCourse"
-import Register from "./user/Register";
-import Navb from "./navbar/Navb";
-import PrivateRoute from "./PrivateRoute";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jwt_decode from "jwt-decode";
+import Home from "./home/Home";
+import Register from "./user/Register";
+import Navb from "./navbar/Navb";
+import PrivateRoute from "./PrivateRoute";
+import Logout from "./user/Logout";
 import MyInformationTeacher from "./user/MyInformationTeacher";
+import { Login } from "./user/Login.jsx";
+import { SignUpTeacher } from "./user/SignUpTeacher";
+import { SignUpStudent } from "./user/SignUpStudent";
+import { AddCourse } from "./course/AddCourse";
+import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
 
 export default class App extends Component {
   // const [isAuth, setIsAuth] = useState(false);
@@ -41,8 +43,8 @@ export default class App extends Component {
     }
   };
 
-  logoutHandler = (e) => {
-    e.preventDefault();
+  logoutHandler = () => {
+    // e.preventDefault();
     //delete tokem and reset state
     localStorage.removeItem("token");
     this.setState({
@@ -66,10 +68,10 @@ export default class App extends Component {
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
           <Route path="/course/add" render={() => <AddCourse />} />
-
           <Route
             path="/login"
             render={(props) => <Login {...props} userLogin={this.userLogin} />}
+          />
           />
           <PrivateRoute
             exact
@@ -78,11 +80,24 @@ export default class App extends Component {
             user={user}
             component={MyInformationTeacher}
           />
+          <PrivateRoute
+            exact
+            path="/EditInformationsTeacher"
+            isLogin={isLogin}
+            user={user}
+            logout={this.logoutHandler}
+            component={EditInformationsTeacher}
+          />
+          {this.state.isLogin ? (
+            <Route
+              path="/logout"
+              render={() => <Logout logout={this.logoutHandler} />}
+            />
+          ) : null}
           {/* <Route path="/registerTeacher" component={SignUpTeacher} /> */}
           {/* <Route path="/registerStudent" component={SignUpStudent} /> */}
           <Route path="/register" component={Register} />
           {/* <Route path="/Allmovie/:id" component={OneMovei} /> */}
-
         </Switch>
       </div>
     );
