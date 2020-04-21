@@ -13,6 +13,7 @@ import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
 import { AddCourse } from "./course/AddCourse";
+import  AllCourse  from "./course/AllCourse";
 import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
 
 export default class App extends Component {
@@ -68,7 +69,9 @@ export default class App extends Component {
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
           <Route path="/course/add" render={() => <AddCourse />} />
+          <Route path="/AllCourse" render={() => <AllCourse />} />
           <Route
+
             path="/login"
             render={(props) => <Login {...props} userLogin={this.userLogin} />}
           />
