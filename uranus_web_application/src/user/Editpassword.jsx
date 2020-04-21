@@ -42,7 +42,7 @@ export default function Editpassword(props) {
                 <Form.Label>Old Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Password"
+                  placeholder="Old Password"
                   name="oldPassword"
                   onChange={(e) => onChangeInput(e)}
                 />
@@ -53,7 +53,7 @@ export default function Editpassword(props) {
                 <Form.Label>New Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Password"
+                  placeholder="New Password"
                   name="password"
                   onChange={(e) => onChangeInput(e)}
                 />

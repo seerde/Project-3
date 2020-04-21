@@ -1,0 +1,168 @@
+/* register page */
+.card-register2 {
+  background-color: #595959;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 350px;
+  margin: 20px 0 70px;
+  min-height: 400px;
+  padding: 30px;
+}
+
+.card-register label {
+  margin-bottom: 10px;
+}
+
+.card-register .btn {
+  margin-top: 30px;
+}
+.card-register .forgot {
+  text-align: center;
+}
+.card-register .input-group-text {
+  border: 1px solid #ffffff;
+}
+
+.card-plain {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+.card-plain .card-body {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.btn-round1 {
+  background-color: #cccccc;
+  border-radius: 30px;
+  margin-top: 8%;
+}
+
+.register-form1 {
+  margin-bottom: 8%;
+}
+
+/* home page */
+.about-text {
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+  color: #d9d9d9;
+}
+
+.about-container {
+  max-width: 70%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  display: block;
+}
+
+.title {
+  font-size: 5em;
+  font-weight: 500;
+  margin: 0;
+  color: #adebeb;
+  margin-bottom: 3%;
+
+}
+
+.majors-card {
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+}
+
+.majors-card-button{
+  background-color: teal;
+}
+
+.majors-container {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  /* background-color: red; */
+  display: block;
+}
+
+
+/* footer */
+.footer {
+  text-align: center;
+
+}
+
+.row {
+  color: #777777;
+  text-align: center;
+}
+
+.site-footer {
+  height: 290px;
+  font-size: 15px;
+  color: #737373;
+  text-align: center;
+  padding-top: 2%;
+  margin-bottom: 0;
+  background-color: #DDDDDD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.site-footer .social-icons a {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  margin-left: 6px;
+  margin-right: 0;
+  background-color: #33353d;
+}
+
+.social-icons {
+  /* background-color: white; */
+  margin-top: 6%;
+  padding-right: 4%;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  border-radius: 100%;
+  /* -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; */
+}
+
+.copyright {
+  /* background-color: thistle; */
+}
+
+.content-center{
+width: 100%;
+height: 60%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1%;
+}
+
+Card.Body{
+  background-color: violet;
+
+}
