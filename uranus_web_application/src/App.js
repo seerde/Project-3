@@ -13,7 +13,7 @@ import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
 import { AddCourse } from "./course/AddCourse";
-import  AllCourse  from "./course/AllCourse";
+import AllCourse from "./course/AllCourse";
 import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
 
 export default class App extends Component {
@@ -67,9 +67,12 @@ export default class App extends Component {
         <Navb user={user} logout={this.logoutHandler} />
         {errorMessage}
         <Switch>
-          <Route path="/home" render={() => <Home name={""} />} />
+          {/* !important // add exact to Routes // */}
+          <Route exact path="/" render={() => <Home />} />
+          <Route path="/home" render={() => <Home />} />
           <Route path="/course/add" render={() => <AddCourse />} />
           <Route path="/register" component={Register} />
+          <Route path="/allcourse" component={AllCourse} />
           <PrivateRoute
             exact
             path="/MyInformationTeacher"
