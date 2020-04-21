@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { EditInformationsTeacher } from "./EditInformationsTeacher";
 import Information from "./Information";
 import Editpassword from "./Editpassword";
+import MyCourse from "../course/MyCourse";
+import { AddCourse } from "../course/AddCourse";
 import "./user.css";
 
 export default class MyInformationTeacher extends Component {
@@ -50,6 +52,12 @@ export default class MyInformationTeacher extends Component {
                   <ListGroup.Item action href="#link5">
                     Add Course
                   </ListGroup.Item>
+                  <ListGroup.Item action href="#link4">
+                    Show Courses
+                  </ListGroup.Item>
+                  <ListGroup.Item action href="#link5">
+                    Add Course
+                  </ListGroup.Item>
                 </ListGroup>
               </Col>
               <Col sm={8}>
@@ -63,8 +71,12 @@ export default class MyInformationTeacher extends Component {
                   <Tab.Pane eventKey="#link3">
                     <Editpassword user={user} logout={logout} />
                   </Tab.Pane>
-                  <Tab.Pane eventKey="#link4">//My Courses</Tab.Pane>
-                  <Tab.Pane eventKey="#link5">//Add Course</Tab.Pane>
+                  <Tab.Pane eventKey="#link4">
+                    <MyCourse user={user} />
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="#link5">
+                    <AddCourse {...this.props} />
+                  </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>

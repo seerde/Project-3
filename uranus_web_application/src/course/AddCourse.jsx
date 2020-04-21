@@ -23,6 +23,7 @@ export const AddCourse = (props) => {
         { headers: { "x-auth-token": token } }
       );
       console.log(courseAdded);
+      props.history.push("/MyInformationTeacher");
     } catch (err) {
       console.log(err);
     }

@@ -14,6 +14,7 @@ import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
 import { AddCourse } from "./course/AddCourse";
 import AllCourse from "./course/AllCourse";
+import CourseDetails from "./course/CourseDetails";
 import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
 import IndexNavbar from "./components/Navbars/IndexNavbar.js";
 
@@ -76,10 +77,14 @@ export default class App extends Component {
         <Switch>
           {/* !important // add exact to Routes // */}
           <Route exact path="/" render={() => <Redirect to="/home" />} />
-          <Route path="/home" render={(props) => <Home user={user} {...props} />} />
-          <Route path="/course/add" render={() => <AddCourse />} />
+          <Route
+            path="/home"
+            render={(props) => <Home user={user} {...props} />}
+          />
+          <Route path="/course/add" component={AddCourse} />
           <Route path="/register" component={Register} />
           <Route path="/allcourse" component={AllCourse} />
+          <Route path="/coruseDetail/:id" component={CourseDetails} />
           <PrivateRoute
             exact
             path="/MyInformationTeacher"
