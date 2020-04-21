@@ -46,12 +46,7 @@ export default class MyInformationTeacher extends Component {
                   <ListGroup.Item action href="#link3">
                     Change Email and Password
                   </ListGroup.Item>
-                  <ListGroup.Item action href="#link4">
-                    My Courses
-                  </ListGroup.Item>
-                  <ListGroup.Item action href="#link5">
-                    Add Course
-                  </ListGroup.Item>
+                  
                   <ListGroup.Item action href="#link4">
                     Show Courses
                   </ListGroup.Item>
