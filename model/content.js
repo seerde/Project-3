@@ -6,7 +6,7 @@ var contentSchema = new mongoose.Schema({
     required: true,
   },
 
-  subject: {
+  link: {
     type: String,
     required: true,
   },
