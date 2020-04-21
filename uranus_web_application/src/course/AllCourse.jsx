@@ -31,7 +31,7 @@ componentDidMount() {
       <Card.Text>
         {course.description}
       </Card.Text>
-      <Button as={Link} to={"/course/"+ course._id} variant="primary">View</Button>
+      <Button as={Link} to={"/coruseDetail/"+ course._id} variant="primary">View</Button>
     </Card.Body>
   </Card>
     })
