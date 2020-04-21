@@ -13,6 +13,7 @@ import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
 import { AddCourse } from "./course/AddCourse";
+import  AllCourse  from "./course/AllCourse";
 import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
 
 export default class App extends Component {
