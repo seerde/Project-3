@@ -11,13 +11,18 @@ import { Route, Redirect } from "react-router-dom";
 export default function PrivateRoute({
   isLogin,
   component: Component,
+  redirectTo: redirectTo,
   ...rest //all other props
 }) {
   return (
     <Route
       {...rest}
       render={(props) =>
-        isLogin ? <Component {...rest} {...props} /> : <Redirect to="/login" />
+        isLogin ? (
+          <Component {...rest} {...props} />
+        ) : (
+          <Redirect to={redirectTo} />
+        )
       }
     />
   );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import jwt_decode from "jwt-decode";
 import Home from "./home/Home";
 import Register from "./user/Register";
@@ -16,6 +16,12 @@ import { AddCourse } from "./course/AddCourse";
 import AllCourse from "./course/AllCourse";
 import CourseDetails from "./course/CourseDetails"
 import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
+import IndexNavbar from "./components/Navbars/IndexNavbar.js";
+
+// CSS assets
+import "./assets/css/bootstrap.min.css";
+import "./assets/scss/paper-kit.scss";
+import "./assets/demo/demo.css";
 
 export default class App extends Component {
   // const [isAuth, setIsAuth] = useState(false);
@@ -65,12 +71,13 @@ export default class App extends Component {
 
     return (
       <div>
-        <Navb user={user} logout={this.logoutHandler} />
+        {/* <Navb user={user} logout={this.logoutHandler} /> */}
+        {/* <IndexNavbar user={user} /> */}
         {errorMessage}
         <Switch>
           {/* !important // add exact to Routes // */}
-          <Route exact path="/" render={() => <Home />} />
-          <Route path="/home" render={() => <Home />} />
+          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route path="/home" render={(props) => <Home user={user} {...props} />} />
           <Route path="/course/add" render={() => <AddCourse />} />
           <Route path="/register" component={Register} />
           <Route path="/allcourse" component={AllCourse} />
@@ -81,6 +88,7 @@ export default class App extends Component {
             isLogin={isLogin}
             user={user}
             logout={this.logoutHandler}
+            redirectTo="/login"
             component={MyInformationTeacher}
           />
           <PrivateRoute
@@ -89,6 +97,7 @@ export default class App extends Component {
             isLogin={isLogin}
             user={user}
             logout={this.logoutHandler}
+            redirectTo="/login"
             component={EditInformationsTeacher}
           />
           <PrivateRoute
@@ -96,6 +105,7 @@ export default class App extends Component {
             path="/login"
             isLogin={!isLogin}
             userLogin={this.userLogin}
+            redirectTo="/home"
             component={Login}
           />
           <PrivateRoute
@@ -103,7 +113,8 @@ export default class App extends Component {
             path="/logout"
             isLogin={isLogin}
             logout={this.logoutHandler}
-            component={Login}
+            redirectTo="/login"
+            component={Logout}
           />
 
           {/* <Route path="/registerTeacher" component={SignUpTeacher} /> */}
