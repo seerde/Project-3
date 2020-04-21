@@ -122,26 +122,14 @@ router.post("/login", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.put("/updateteachr/:id", isLoggedIn, async (req, res) => {
-  // const update = {
-  //   firstName: req.body.firstName,
-  //   lastName: req.body.lastName,
-  //   email: req.body.email,
-  //   password: req.body.password,
-  //   education: req.body.education,
-  // };
-
+router.put("/updateteacher/:id", isLoggedIn, async (req, res) => {
   let inputUser = { ...req.body };
 
   try {
-    inputUser.password = await bcrypt.hash(req.body.password, 10);
-
     let user = await User.findById(req.params.id);
 
     user.firstName = inputUser.firstName;
     user.lastName = inputUser.lastName;
-    user.email = inputUser.email;
-    user.password = inputUser.password;
     user.education = inputUser.education;
 
     let userSaved = await user.save();
@@ -149,6 +137,36 @@ router.put("/updateteachr/:id", isLoggedIn, async (req, res) => {
     if (!userSaved) throw error;
 
     res.status(200).json({ message: "User Updated!", userSaved });
+  } catch (error) {
+    res.status(400).json({ message: "something went wrong!" });
+  }
+  //
+});
+
+router.put("/updatepassword/:id", isLoggedIn, async (req, res) => {
+  let inputUser = { ...req.body };
+
+  try {
+    let user = await User.findById(req.params.id);
+    console.log(inputUser);
+    if (user) {
+      if (bcrypt.compareSync(inputUser.oldPassword, user.password)) {
+        inputUser.password = await bcrypt.hash(inputUser.password, 10);
+
+        user.email = inputUser.email;
+        user.password = inputUser.password;
+
+        let userSaved = await user.save();
+        if (!userSaved) throw error;
+        res
+          .status(200)
+          .json({ message: "User Updated!", isMatch: true, userSaved });
+      } else {
+        res
+          .json({ message: "Old Password incorrect!", isMatch: false })
+          .status(400);
+      }
+    }
   } catch (error) {
     res.status(400).json({ message: "something went wrong!" });
   }

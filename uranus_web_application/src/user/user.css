@@ -1,0 +1,11 @@
+.information__container {
+  border: 1px solid black;
+  padding: 0;
+  margin-top: 5%;
+  height: 500px;
+  border-radius: 0.25rem;
+}
+.dashboard {
+  text-align: center;
+  margin-top: 20px;
+}

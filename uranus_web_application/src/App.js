@@ -68,16 +68,13 @@ export default class App extends Component {
         <Switch>
           <Route path="/home" render={() => <Home name={""} />} />
           <Route path="/course/add" render={() => <AddCourse />} />
-          <Route
-            path="/login"
-            render={(props) => <Login {...props} userLogin={this.userLogin} />}
-          />
-          />
+          <Route path="/register" component={Register} />
           <PrivateRoute
             exact
             path="/MyInformationTeacher"
             isLogin={isLogin}
             user={user}
+            logout={this.logoutHandler}
             component={MyInformationTeacher}
           />
           <PrivateRoute
@@ -88,15 +85,23 @@ export default class App extends Component {
             logout={this.logoutHandler}
             component={EditInformationsTeacher}
           />
-          {this.state.isLogin ? (
-            <Route
-              path="/logout"
-              render={() => <Logout logout={this.logoutHandler} />}
-            />
-          ) : null}
+          <PrivateRoute
+            exact
+            path="/login"
+            isLogin={!isLogin}
+            userLogin={this.userLogin}
+            component={Login}
+          />
+          <PrivateRoute
+            exact
+            path="/logout"
+            isLogin={isLogin}
+            logout={this.logoutHandler}
+            component={Login}
+          />
+
           {/* <Route path="/registerTeacher" component={SignUpTeacher} /> */}
           {/* <Route path="/registerStudent" component={SignUpStudent} /> */}
-          <Route path="/register" component={Register} />
           {/* <Route path="/Allmovie/:id" component={OneMovei} /> */}
         </Switch>
       </div>
