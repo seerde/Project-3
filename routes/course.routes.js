@@ -30,9 +30,20 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/user/:id", async (req, res) => {
+  try {
+    let user = await User.findById(req.params.id).populate("courses");
+    if (!user) throw error;
+    res.json({ courses: user.courses }).status(200);
+  } catch (error) {
+    res.json({ error }).status(400);
+  }
+});
+
 router.post("/add", isLoggedIn, async (req, res) => {
   let { courseName, major, link, description, duration } = req.body;
   let teacher = req.user;
+  console.log("user", teacher);
   try {
     let course = new Courses({
       courseName,
