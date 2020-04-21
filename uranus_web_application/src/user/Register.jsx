@@ -4,7 +4,7 @@ import { SignUpStudent } from "./SignUpStudent";
 import { Switch, Route } from "react-router-dom";
 import { Button, Row, Col, Form } from "react-bootstrap";
 
-export default function Register() {
+export default function Register(props) {
   const [registerAs, setRegisterAs] = useState("student");
 
   function handleRegisterAs(e) {
@@ -18,7 +18,11 @@ export default function Register() {
     // ) : (
     //   <Route path="/registerTeacher" component={SignUpTeacher} />
     // );
-    registerAs === "student" ? <SignUpStudent /> : <SignUpTeacher />;
+    registerAs === "student" ? (
+      <SignUpStudent history={props.history} />
+    ) : (
+      <SignUpTeacher history={props.history} />
+    );
   return (
     <div>
       <Row className="justify-content-center mt-5">
