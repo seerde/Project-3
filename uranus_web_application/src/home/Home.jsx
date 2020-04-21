@@ -1,9 +1,21 @@
 import React from "react";
 
-export default function Home() {
+import IndexNavbar from "../components/Navbars/IndexNavbar.js";
+import IndexHeader from "../components/Headers/IndexHeader.js";
+import DemoFooter from "../components/Footers/DemoFooter.js";
+import SectionTypography from "../views/index-sections/SectionTypography.js";
+import SectionJavaScript from "../views/index-sections/SectionJavaScript.js";
+
+export default function Home(props) {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <IndexNavbar user={props.user} />
+      <IndexHeader />
+      <div className="main">
+        <SectionTypography />
+        <SectionJavaScript />
+        <DemoFooter />
+      </div>
+    </>
   );
 }
