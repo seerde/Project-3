@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
-// import { Form, Row, Col, Button } from "react-bootstrap";
-import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
-// import React, { Component } from 'react'
+import {
+  Button,
+  Card,
+  Form,
+  Input,
+  Container,
+  Row,
+  Col,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
+import "../assets/css/main.css";
 import Axios from "axios";
 
 export const AddCourse = (props) => {
@@ -31,59 +42,6 @@ export const AddCourse = (props) => {
   //api/course/add
   return (
     <div>
-      {/* <Form className="mt-5">
-        <Row className="justify-content-center mt-5">
-          <Col md={8}>
-            <Form.Row>
-              <Col md={4}>
-                <Form.Label>Course name</Form.Label>
-                <Form.Control
-                  placeholder="Course name"
-                  name="courseName"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-              <Col md={4}>
-                <Form.Label>Major</Form.Label>
-                <Form.Control
-                  placeholder="major"
-                  name="major"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-              <Col md={4}>
-                <Form.Label>Duration</Form.Label>
-                <Form.Control
-                  placeholder="Duration"
-                  name="duration"
-                  type="number"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-            </Form.Row>
-            <Form.Row>
-              <Col>
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                  placeholder="Course name"
-                  as="textarea"
-                  name="description"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-            </Form.Row>
-            <Button
-              className="mt-2"
-              variant="primary"
-              type="submit"
-              onClick={(e) => onSubmit(e)}
-            >
-              Submit
-            </Button>
-          </Col>
-        </Row>
-      </Form> */}
-
       <div
         className="page-header"
         style={{
@@ -100,6 +58,7 @@ export const AddCourse = (props) => {
                 <Form className="register-form">
                   <label>Course Name</label>
                   <Input
+                    className="input-select"
                     placeholder="Course Name"
                     type="text"
                     name="courseName"
@@ -107,12 +66,20 @@ export const AddCourse = (props) => {
                   />
 
                   <label>Major</label>
-                  <Input
-                    placeholder="major"
-                    type="text"
+                  <select
+                    className="input-select"
                     name="major"
                     onChange={(e) => onChangeInput(e)}
-                  />
+                  >
+                    <option value="math">Math</option>
+                    <option value="computer science">Computer Science</option>
+                    <option value="history">History</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="psychology">Psychology</option>
+                    <option value="sciences">Sciences</option>
+                    <option value="design">Design</option>
+                    <option value="physics">Physics</option>
+                  </select>
 
                   <label>Duration</label>
                   <Input

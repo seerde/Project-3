@@ -39,19 +39,37 @@ function SectionJavaScript(props) {
               <Card className="majors-card">
                 <Card.Body>
                   <Card.Title>Computer Science</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Button
+                    name="computer science"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="majors-card">
                 <Card.Body>
                   <Card.Title>History</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Button
+                    name="history"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="majors-card">
                 <Card.Body>
                   <Card.Title>Chemistry</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Button
+                    name="chemistry"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
             </Row>
@@ -59,25 +77,49 @@ function SectionJavaScript(props) {
               <Card className="majors-card">
                 <Card.Body>
                   <Card.Title>Psychology</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Button
+                    name="psychology"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="majors-card">
                 <Card.Body>
                   <Card.Title>Sciences</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Button
+                    name="sciences"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="majors-card">
                 <Card.Body>
-                  <Card.Title>Math</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Card.Title>Design</Card.Title>
+                  <Button
+                    name="design"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="majors-card">
                 <Card.Body>
-                  <Card.Title>physics</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Card.Title>Physics</Card.Title>
+                  <Button
+                    name="physics"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
             </Row>
