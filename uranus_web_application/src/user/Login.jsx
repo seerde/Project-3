@@ -118,12 +118,7 @@ export const Login = (props) => {
             </Col>
           </Row>
         </Container>
-        <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()}, made with{" "}
-            <i className="fa fa-heart heart" /> by Uranus Group
-          </h6>
-        </div>
+        <span className="copyright">© 2020, made by Uranus Group</span>
       </div>
     </>
   );
