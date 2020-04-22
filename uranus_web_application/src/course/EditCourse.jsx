@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { Form, Row, Col, Button } from "react-bootstrap";
-import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
+import { Button, Card, Input, Container, Row, Col } from "reactstrap";
+import {Form} from "react-bootstrap"
 // import React, { Component } from 'react'
 import Axios from "axios";
 
@@ -92,11 +93,11 @@ export const EditCourse = (props) => {
         }}
       >
         <div className="filter" />
-        <Container>
+        <Container style={{marginTop:"5%"}} >
           <Row>
             <Col className="ml-auto mr-auto" lg="4">
               <Card className="card-register ml-auto mr-auto">
-                <h3 className="title mx-auto">Add Course</h3>
+                <h3 className="title mx-auto"style={{ fontSize: "34px"}}>Add Course</h3>
                 <Form className="register-form">
                   <label>Course Name</label>
                   <Input
@@ -106,13 +107,24 @@ export const EditCourse = (props) => {
                     onChange={(e) => onChangeInput(e)}
                   />
 
-                  <label>Major</label>
-                  <Input
-                    placeholder="major"
-                    type="text"
-                    name="major"
-                    onChange={(e) => onChangeInput(e)}
-                  />
+                  <Form.Label>Major</Form.Label>
+                <Form.Control
+                  className="input-select"
+                  as="select"
+                  custom
+                  name="major"
+                  onChange={(e) => onChangeInput(e)}
+                >
+                  <option value="math">Math</option>
+                  <option value="computer science">Computer Science</option>
+                  <option value="history">History</option>
+                  <option value="chemistry">Chemistry</option>
+                  <option value="psychology">Psychology</option>
+                  <option value="sciences">Sciences</option>
+                  <option value="design">Design</option>
+                  <option value="physics">Physics</option>
+                </Form.Control>
+              
 
                   <label>Duration</label>
                   <Input

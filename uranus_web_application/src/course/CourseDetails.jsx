@@ -85,14 +85,15 @@ export default class CourseDetails extends Component {
       editButtons =
         teacher._id === this.props.user._id ? (
           <div className="course-details-button">
-            <Button className="button">Edit Course</Button>
+            <Button className="button" href={`/course/update/${this.props.match.params.id}`}>Edit Course</Button>
+              
             <Button
               className="button"
               href={`/content/add/${this.props.match.params.id}`}
-            >
+           >
               Add Content
             </Button>
-          </>
+          </div>
         ) : null 
 
            
