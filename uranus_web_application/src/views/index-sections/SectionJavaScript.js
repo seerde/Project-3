@@ -3,17 +3,21 @@ import { Container } from "reactstrap";
 import { Row, Button, Card } from "react-bootstrap";
 import "../../assets/css/main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
-
-
-function SectionJavaScript() {
+function SectionJavaScript(props) {
+  function handleShowCourses(e) {
+    props.filter(e.target.name);
+    props.history.push("/allcourse");
+  }
   return (
     <>
       <div
         id="major"
         className="page-header section-dark"
         style={{
-          backgroundImage: "url(" + require("../../assets/img/background2.jpg") + ")",
+          backgroundImage:
+            "url(" + require("../../assets/img/background2.jpg") + ")",
         }}
       >
         <div className="content-center">
@@ -23,7 +27,13 @@ function SectionJavaScript() {
               <Card className="majors-card">
                 <Card.Body>
                   <Card.Title>Math</Card.Title>
-                  <Button variant="primary">Show More</Button>
+                  <Button
+                    name="math"
+                    onClick={handleShowCourses}
+                    variant="primary"
+                  >
+                    Show More
+                  </Button>
                 </Card.Body>
               </Card>
               <Card className="majors-card">

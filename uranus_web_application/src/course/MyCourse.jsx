@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class MyCourse extends Component {
   state = {
@@ -30,7 +31,7 @@ export default class MyCourse extends Component {
     const cards = this.state.courses.map((course) => {
       return (
         <Col md={4}>
-          <Card style={{ width: "18rem" }}>
+          <Card>
             {/* <Card.Img
               variant="top"
               src="https://place-hold.it/100x180"
@@ -38,7 +39,13 @@ export default class MyCourse extends Component {
             <Card.Body>
               <Card.Title>{course.courseName}</Card.Title>
               <Card.Text>{course.description}</Card.Text>
-              <Button variant="primary">View</Button>
+              <Button
+                as={Link}
+                to={"/coruseDetail/" + course._id}
+                variant="primary"
+              >
+                View
+              </Button>
             </Card.Body>
           </Card>
         </Col>
@@ -47,7 +54,7 @@ export default class MyCourse extends Component {
     return (
       <div>
         <Container>
-          <Row>{cards}</Row>
+          <Row className="scrollable">{cards}</Row>
         </Container>
       </div>
     );

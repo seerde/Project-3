@@ -2,10 +2,22 @@
   border: 1px solid black;
   padding: 0 !important;
   margin-top: 5%;
-  height: 500px;
+  height: 600px;
   border-radius: 0.25rem;
+  background-color: white;
 }
 .dashboard {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10%;
+}
+.dashboard-title {
+  color: white;
+  opacity: 0.9;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scrollable {
+  height: 590px;
+  overflow: auto;
 }

@@ -9,11 +9,11 @@ import SectionJavaScript from "../views/index-sections/SectionJavaScript.js";
 export default function Home(props) {
   return (
     <>
-      <IndexNavbar user={props.user} />
+      {/* <IndexNavbar user={props.user} /> */}
       <IndexHeader />
       <div className="main">
         <SectionTypography />
-        <SectionJavaScript />
+        <SectionJavaScript {...props} filter={props.filter} />
         <DemoFooter />
       </div>
     </>

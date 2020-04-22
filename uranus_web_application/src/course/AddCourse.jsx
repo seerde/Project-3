@@ -4,7 +4,6 @@ import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 // import React, { Component } from 'react'
 import Axios from "axios";
 
-
 export const AddCourse = (props) => {
   const [course, setCourse] = useState({});
   let onChangeInput = ({ target: { name, value } }) => {

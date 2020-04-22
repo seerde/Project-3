@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col, Button, Container, Card } from "react-bootstrap";
 import Axios from "axios";
 
 export const AddContent = (props) => {
@@ -16,10 +16,10 @@ export const AddContent = (props) => {
   let onSubmit = async (e) => {
     e.preventDefault();
     let token = localStorage.getItem("token");
-
+    console.log("content", content);
     try {
       let contentAdded = await Axios.post(
-        `http://localhost:3005/api/content/add/${props.course._id}`,
+        `http://localhost:3005/api/content/add/${props.match.params.id}`,
         content,
         {
           headers: {
@@ -28,6 +28,7 @@ export const AddContent = (props) => {
         }
       );
       console.log(contentAdded);
+      props.history.push(`/coruseDetail/${props.match.params.id}`);
     } catch (err) {
       console.log(err);
     }
@@ -36,51 +37,68 @@ export const AddContent = (props) => {
   //api/content/add
   return (
     <div>
-      <Form className="mt-5">
-        <Row className="justify-content-center mt-5">
-          <Col md={8}>
-            <Form.Row>
-              <Col md={4}>
-                <Form.Label>Content Title</Form.Label>
-                <Form.Control
-                  placeholder="Content Title"
-                  name="title"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-            </Form.Row>
-            <Form.Row>
-              <Col>
-                <Form.Label>Content Description</Form.Label>
-                <Form.Control
-                  placeholder="Content Description"
-                  as="textarea"
-                  name="description"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-            </Form.Row>
-            <Form.Row>
-              <Col md={4}>
-                <Form.Label>Video Link</Form.Label>
-                <Form.Control
-                  placeholder="Video Link"
-                  name="link"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-            </Form.Row>
-            <Button
-              className="mt-2"
-              variant="primary"
-              type="submit"
-              onClick={(e) => onSubmit(e)}
-            >
-              Add Content
-            </Button>
+      <div
+        className="page-header"
+        style={{
+          backgroundImage:
+            "url(" + require("../assets/img/background2.jpg") + ")",
+        }}
+      >
+        <div className="filter" />
+        <Container>
+          <Col className="ml-auto mr-auto" lg="4">
+            <Card className="card-register ml-auto mr-auto">
+              <h3 className="title mx-auto">Add Content</h3>
+              <Form className="register-form">
+                <Row>
+                  <Col>
+                    <Form.Row>
+                      <Col>
+                        <Form.Label>Content Title</Form.Label>
+                        <Form.Control
+                          placeholder="Content Title"
+                          name="title"
+                          onChange={(e) => onChangeInput(e)}
+                        />
+                      </Col>
+                    </Form.Row>
+                    <Form.Row>
+                      <Col>
+                        <Form.Label>Content Description</Form.Label>
+                        <Form.Control
+                          placeholder="Content Description"
+                          as="textarea"
+                          style={{ height: "230px" }}
+                          name="description"
+                          onChange={(e) => onChangeInput(e)}
+                        />
+                      </Col>
+                    </Form.Row>
+                    <Form.Row>
+                      <Col>
+                        <Form.Label>Video Link</Form.Label>
+                        <Form.Control
+                          placeholder="Video Link"
+                          name="link"
+                          onChange={(e) => onChangeInput(e)}
+                        />
+                      </Col>
+                    </Form.Row>
+                    <Button
+                      className="mt-2"
+                      variant="primary"
+                      type="submit"
+                      onClick={(e) => onSubmit(e)}
+                    >
+                      Add Content
+                    </Button>
+                  </Col>
+                </Row>
+              </Form>
+            </Card>
           </Col>
-        </Row>
-      </Form>
+        </Container>
+      </div>
     </div>
   );
 };

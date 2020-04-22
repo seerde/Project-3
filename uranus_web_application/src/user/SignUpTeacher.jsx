@@ -5,13 +5,13 @@ import "../assets/css/main.css";
 import Axios from "axios";
 
 export const SignUpTeacher = (props) => {
-    // document.documentElement.classList.remove("nav-open");
-    // React.useEffect(() => {
-    //   document.body.classList.add("register-page");
-    //   return function cleanup() {
-    //     document.body.classList.remove("register-page");
-    //   };
-    // });
+  // document.documentElement.classList.remove("nav-open");
+  // React.useEffect(() => {
+  //   document.body.classList.add("register-page");
+  //   return function cleanup() {
+  //     document.body.classList.remove("register-page");
+  //   };
+  // });
 
   const [user, setUser] = useState({}); // user info
   const [register, setRegister] = useState(false); // to show aleart
@@ -46,158 +46,72 @@ export const SignUpTeacher = (props) => {
         </Alert>
       )}
 
-      {/* <Form className="mt-5">
-        <Row className="justify-content-center mt-5">
-          <Col md={8}>
-            <Form.Row>
-              <Col md={6}>
-                <Form.Label>First name</Form.Label>
-                <Form.Control
-                  placeholder="First name"
-                  name="firstName"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-              <Col md={6}>
-                <Form.Label>Last name</Form.Label>
-                <Form.Control
-                  placeholder="Last name"
-                  name="lastName"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Col>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  name="email"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
+      <Row>
+        <Col className="ml-auto mr-auto" lg="4">
+          <Card className="card-register ml-auto mr-auto">
+            <h3 className="title mx-auto">Welcome</h3>
+            <Form className="register-form">
+              <label>First Name</label>
+              <Input
+                placeholder="First Name"
+                type="text"
+                name="firstName"
+                onChange={(e) => onChangeInput(e)}
+              />
 
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Major</Form.Label>
-                <Form.Control
-                  placeholder="Major"
-                  name="major"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Education</Form.Label>
-                <Form.Control
-                  placeholder="Education"
-                  name="education"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-            </Form.Row>
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={(e) => onSubmit(e)}
-            >
-              Submit
-            </Button>
-          </Col>
-        </Row>
-      </Form> */}
+              <label>Last Name</label>
+              <Input
+                placeholder="Last Name"
+                type="text"
+                name="lastName"
+                onChange={(e) => onChangeInput(e)}
+              />
 
-      <div
-        className="page-header"
-        style={{
-          backgroundImage:
-            "url(" + require("../assets/img/background2.jpg") + ")",
-        }}
-      >
-        <div className="filter" />
-        <Container>
-          <Row>
-            <Col className="ml-auto mr-auto" lg="4">
-              <Card className="card-register ml-auto mr-auto">
-                <h3 className="title mx-auto">Welcome</h3>
-                <Form className="register-form">
-                  <label>First Name</label>
-                  <Input
-                    placeholder="First Name"
-                    type="text"
-                    name="firstName"
-                    onChange={(e) => onChangeInput(e)}
-                  />
+              <label>Email</label>
+              <Input
+                placeholder="Email"
+                type="email"
+                name="email"
+                onChange={(e) => onChangeInput(e)}
+              />
 
-                  <label>Last Name</label>
-                  <Input
-                    placeholder="Last Name"
-                    type="text"
-                    name="lastName"
-                    onChange={(e) => onChangeInput(e)}
-                  />
+              <label>Password</label>
+              <Input
+                placeholder="Password"
+                type="password"
+                name="password"
+                onChange={(e) => onChangeInput(e)}
+              />
 
-                  <label>Email</label>
-                  <Input
-                    placeholder="Email"
-                    type="email"
-                    name="email"
-                    onChange={(e) => onChangeInput(e)}
-                  />
+              <label>Major</label>
+              <Input
+                placeholder="Major"
+                type="text"
+                name="major"
+                onChange={(e) => onChangeInput(e)}
+              />
 
-                  <label>Password</label>
-                  <Input
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    onChange={(e) => onChangeInput(e)}
-                  />
+              <label>Education</label>
+              <Input
+                placeholder="Education"
+                type="text"
+                name="education"
+                onChange={(e) => onChangeInput(e)}
+              />
 
-                  <label>Major</label>
-                  <Input
-                    placeholder="Major"
-                    type="text"
-                    name="major"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <label>Education</label>
-                  <Input
-                    placeholder="Education"
-                    type="text"
-                    name="education"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <Button
-                    block
-                    className="btn-round"
-                    color="danger"
-                    type="submit"
-                    onClick={(e) => onSubmit(e)}
-                  >
-                    SignUp
-                  </Button>
-                </Form>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-        <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()}, made with{" "}
-            <i className="fa fa-heart heart" /> by Uranus Group
-          </h6>
-        </div>
-      </div>
+              <Button
+                block
+                className="btn-round"
+                color="danger"
+                type="submit"
+                onClick={(e) => onSubmit(e)}
+              >
+                SignUp
+              </Button>
+            </Form>
+          </Card>
+        </Col>
+      </Row>
     </>
   );
 };

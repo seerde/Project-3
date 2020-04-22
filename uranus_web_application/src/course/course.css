@@ -1,0 +1,9 @@
+.course__container {
+  margin-top: 100px;
+  height: 80vh;
+}
+
+.course__card {
+  overflow: auto;
+  height: 100%;
+}

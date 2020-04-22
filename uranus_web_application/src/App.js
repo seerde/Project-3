@@ -15,6 +15,8 @@ import { SignUpStudent } from "./user/SignUpStudent";
 import { AddCourse } from "./course/AddCourse";
 import AllCourse from "./course/AllCourse";
 import CourseDetails from "./course/CourseDetails";
+import ContentDetails from "./content/ContentDetails";
+import { AddContent } from "./content/AddContent";
 import { EditInformationsTeacher } from "./user/EditInformationsTeacher";
 import IndexNavbar from "./components/Navbars/IndexNavbar.js";
 
@@ -29,6 +31,7 @@ export default class App extends Component {
     user: null,
     isLogin: false,
     message: "",
+    filter: "all",
   };
 
   componentDidMount() {
@@ -62,6 +65,10 @@ export default class App extends Component {
     });
   };
 
+  filterHandler = (e) => {
+    this.setState({ filter: e });
+  };
+
   render() {
     const { isLogin, message, user } = this.state;
 
@@ -72,19 +79,34 @@ export default class App extends Component {
     return (
       <div>
         {/* <Navb user={user} logout={this.logoutHandler} /> */}
-        {/* <IndexNavbar user={user} /> */}
+        <IndexNavbar user={user} />
         {errorMessage}
         <Switch>
           {/* !important // add exact to Routes // */}
           <Route exact path="/" render={() => <Redirect to="/home" />} />
           <Route
             path="/home"
-            render={(props) => <Home user={user} {...props} />}
+            render={(props) => (
+              <Home filter={this.filterHandler} user={user} {...props} />
+            )}
           />
           <Route path="/course/add" component={AddCourse} />
           <Route path="/register" component={Register} />
-          <Route path="/allcourse" component={AllCourse} />
-          <Route path="/coruseDetail/:id" component={CourseDetails} />
+          <Route path="/allcourse">
+            <AllCourse filter={this.state.filter} />
+          </Route>
+          <Route
+            path="/coruseDetail/:id"
+            render={(props) => <CourseDetails user={user} {...props} />}
+          />
+          <Route
+            path="/contentDetail/:id"
+            render={(props) => <ContentDetails {...props} />}
+          />
+          <Route
+            path="/content/add/:id"
+            render={(props) => <AddContent {...props} />}
+          />
           <PrivateRoute
             exact
             path="/MyInformationTeacher"
@@ -93,15 +115,6 @@ export default class App extends Component {
             logout={this.logoutHandler}
             redirectTo="/login"
             component={MyInformationTeacher}
-          />
-          <PrivateRoute
-            exact
-            path="/EditInformationsTeacher"
-            isLogin={isLogin}
-            user={user}
-            logout={this.logoutHandler}
-            redirectTo="/login"
-            component={EditInformationsTeacher}
           />
           <PrivateRoute
             exact

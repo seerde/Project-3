@@ -4,6 +4,18 @@ const User = require("../model/user");
 const Courses = require("../model/course");
 const isLoggedIn = require("../config/config");
 
+router.get("/show/:id", async (req, res) => {
+  try {
+    let content = await Contents.findById(req.params.id);
+    console.log(content);
+    if (!content) throw err;
+
+    res.json({ message: "fetched content", content }).status(200);
+  } catch (err) {
+    res.json({ message: "content is unavailable" }).status(400);
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     let course = await Courses.findById(req.params.id).populate("contents");
@@ -18,12 +30,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-          {/* <Route path="/content/add" render={() => <AddContent course={course}/>} /> */}
-
+{
+  /* <Route path="/content/add" render={() => <AddContent course={course}/>} /> */
+}
 
 router.post("/add/:id", isLoggedIn, async (req, res) => {
   let { title, link, description } = req.body;
-
+  console.log("test");
   try {
     let course = await Courses.findById(req.params.id);
 

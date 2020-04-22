@@ -1,0 +1,9 @@
+.content__container {
+  margin-top: 100px;
+  height: 80vh;
+}
+
+.content__card {
+  overflow: auto;
+  height: 100%;
+}

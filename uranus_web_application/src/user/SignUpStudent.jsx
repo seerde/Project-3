@@ -37,126 +37,58 @@ export const SignUpStudent = (props) => {
           the email used . please change the email
         </Alert>
       )}
-      {/* <Form className="mt-5">
-        <Row className="justify-content-center mt-5">
-          <Col md={8}>
-            <Form.Row>
-              <Col md={6}>
-                <Form.Label>First name</Form.Label>
-                <Form.Control
-                  placeholder="First name"
+      <Container>
+        <Row>
+          <Col className="ml-auto mr-auto" lg="4">
+            <Card className="card-register ml-auto mr-auto">
+              <h3 className="title mx-auto">Welcome</h3>
+              <Form className="register-form">
+                <label>First Name</label>
+                <Input
+                  placeholder="First Name"
+                  type="text"
                   name="firstName"
                   onChange={(e) => onChangeInput(e)}
                 />
-              </Col>
-              <Col md={6}>
-                <Form.Label>Last name</Form.Label>
-                <Form.Control
-                  placeholder="Last name"
+
+                <label>Last Name</label>
+                <Input
+                  placeholder="Last Name"
+                  type="text"
                   name="lastName"
                   onChange={(e) => onChangeInput(e)}
                 />
-              </Col>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
+
+                <label>Email</label>
+                <Input
+                  placeholder="Email"
                   type="email"
-                  placeholder="Enter email"
                   name="email"
                   onChange={(e) => onChangeInput(e)}
                 />
-              </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
+                <label>Password</label>
+                <Input
                   placeholder="Password"
+                  type="password"
                   name="password"
                   onChange={(e) => onChangeInput(e)}
                 />
-              </Form.Group>
-            </Form.Row>
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={(e) => onSubmit(e)}
-            >
-              Submit
-            </Button>
+
+                <Button
+                  block
+                  className="btn-round"
+                  color="danger"
+                  type="submit"
+                  onClick={(e) => onSubmit(e)}
+                >
+                  SignUp
+                </Button>
+              </Form>
+            </Card>
           </Col>
         </Row>
-      </Form> */}
-
-      <div
-        className="page-header"
-        style={{
-          backgroundImage:
-            "url(" + require("../assets/img/background2.jpg") + ")",
-        }}
-      >
-        <div className="filter" />
-        <Container>
-          <Row>
-            <Col className="ml-auto mr-auto" lg="4">
-              <Card className="card-register ml-auto mr-auto">
-                <h3 className="title mx-auto">Welcome</h3>
-                <Form className="register-form">
-                  <label>First Name</label>
-                  <Input
-                    placeholder="First Name"
-                    type="text"
-                    name="firstName"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <label>Last Name</label>
-                  <Input
-                    placeholder="Last Name"
-                    type="text"
-                    name="lastName"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <label>Email</label>
-                  <Input
-                    placeholder="Email"
-                    type="email"
-                    name="email"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <label>Password</label>
-                  <Input
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <Button
-                    block
-                    className="btn-round"
-                    color="danger"
-                    type="submit"
-                    onClick={(e) => onSubmit(e)}
-                  >
-                    SignUp
-                  </Button>
-                </Form>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-        <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()}, made with{" "}
-            <i className="fa fa-heart heart" /> by Uranus Group
-          </h6>
-        </div>
-      </div>
+      </Container>
     </>
   );
 };
