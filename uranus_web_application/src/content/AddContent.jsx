@@ -53,7 +53,7 @@ export const AddContent = (props) => {
         }}
       >
         <Container className="course__container">
-          <Jumbotron className="course__card">
+          <Jumbotron className="course__card2">
             <Form className="mt-5">
               <Row className="justify-content-center mt-5">
                 <Col md={8}>

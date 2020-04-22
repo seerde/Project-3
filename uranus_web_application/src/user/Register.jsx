@@ -24,21 +24,7 @@ export default function Register(props) {
       <SignUpTeacher history={props.history} />
     );
   return (
-    // <div>
-    //   <Row className="justify-content-center mt-5">
-    //     <Col className="justify-content-center" md={8}>
-    //       <Button className="mr-3" value="student" onClick={handleRegisterAs}>
-    //         Register As a Student
-    //       </Button>
-
-    //       <Button value="teacher" onClick={handleRegisterAs}>
-    //         Register As a Teacher
-    //       </Button>
-    //     </Col>
-    //   </Row>
-    //   <Switch>{display}</Switch>
-    // </div>
-    <>
+    <div>
       <div
         className="page-header"
         style={{
@@ -73,6 +59,6 @@ export default function Register(props) {
           <h6>© {new Date().getFullYear()}, made by Uranus Group</h6>
         </div>
       </div>
-    </>
+    </div>
   );
 }
