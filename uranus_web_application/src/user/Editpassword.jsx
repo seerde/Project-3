@@ -70,9 +70,11 @@ export default function Editpassword(props) {
                 />
               </Form.Group>
             </Form.Row>
-            <Button variant="primary" onClick={update} block>
+            <Form.Row>
+            <Button className="button" variant="primary" onClick={update} block>
               Update
             </Button>
+            </Form.Row>
           </Col>
         </Row>
       </Form>

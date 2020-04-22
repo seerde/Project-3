@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Form, Row, Col, Button, Container, Card } from "react-bootstrap";
+import {
+  Form,
+  Row,
+  Col,
+  Button,
+  Container,
+  Card,
+  Jumbotron,
+} from "react-bootstrap";
 import Axios from "axios";
 
 export const AddContent = (props) => {
@@ -44,59 +52,57 @@ export const AddContent = (props) => {
             "url(" + require("../assets/img/background2.jpg") + ")",
         }}
       >
-        <div className="filter" />
-        <Container>
-          <Col className="ml-auto mr-auto" lg="4">
-            <Card className="card-register ml-auto mr-auto">
-              <h3 className="title mx-auto">Add Content</h3>
-              <Form className="register-form">
-                <Row>
-                  <Col>
-                    <Form.Row>
-                      <Col>
-                        <Form.Label>Content Title</Form.Label>
-                        <Form.Control
-                          placeholder="Content Title"
-                          name="title"
-                          onChange={(e) => onChangeInput(e)}
-                        />
-                      </Col>
-                    </Form.Row>
-                    <Form.Row>
-                      <Col>
-                        <Form.Label>Content Description</Form.Label>
-                        <Form.Control
-                          placeholder="Content Description"
-                          as="textarea"
-                          style={{ height: "230px" }}
-                          name="description"
-                          onChange={(e) => onChangeInput(e)}
-                        />
-                      </Col>
-                    </Form.Row>
-                    <Form.Row>
-                      <Col>
-                        <Form.Label>Video Link</Form.Label>
-                        <Form.Control
-                          placeholder="Video Link"
-                          name="link"
-                          onChange={(e) => onChangeInput(e)}
-                        />
-                      </Col>
-                    </Form.Row>
-                    <Button
-                      className="mt-2"
-                      variant="primary"
-                      type="submit"
-                      onClick={(e) => onSubmit(e)}
-                    >
-                      Add Content
-                    </Button>
-                  </Col>
-                </Row>
-              </Form>
-            </Card>
-          </Col>
+        <Container className="course__container">
+          <Jumbotron className="course__card">
+            <Form className="mt-5">
+              <Row className="justify-content-center mt-5">
+                <Col md={8}>
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridFirstName">
+                      <Form.Label>Content Title</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Content Title"
+                        name="title"
+                        onChange={(e) => onChangeInput(e)}
+                      />
+                    </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridLastName">
+                      <Form.Label>Content Description</Form.Label>
+                      <Form.Control
+                        placeholder="Content Description"
+                        as="textarea"
+                        style={{ height: "230px" }}
+                        name="description"
+                        onChange={(e) => onChangeInput(e)}
+                      />
+                    </Form.Group>
+                  </Form.Row>
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridEducation">
+                      <Form.Label>Video Link</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Video Link"
+                        name="link"
+                        onChange={(e) => onChangeInput(e)}
+                      />
+                    </Form.Group>
+                  </Form.Row>
+                  <Button
+                    className="button"
+                    variant="primary"
+                    type="submit"
+                    onClick={(e) => onSubmit(e)}
+                  >
+                    Add Content
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </Jumbotron>
         </Container>
       </div>
     </div>

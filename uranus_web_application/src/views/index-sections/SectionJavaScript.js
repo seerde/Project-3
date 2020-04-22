@@ -28,6 +28,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Math</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="math"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -40,6 +41,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Computer Science</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="computer science"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -52,6 +54,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>History</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="history"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -64,6 +67,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Chemistry</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="chemistry"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -78,6 +82,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Psychology</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="psychology"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -90,6 +95,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Sciences</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="sciences"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -102,6 +108,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Design</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="design"
                     onClick={handleShowCourses}
                     variant="primary"
@@ -114,6 +121,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Physics</Card.Title>
                   <Button
+                    style={{ backgroundColor: "#f5593d" }}
                     name="physics"
                     onClick={handleShowCourses}
                     variant="primary"

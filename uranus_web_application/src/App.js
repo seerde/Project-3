@@ -100,6 +100,7 @@ export default class App extends Component {
             path="/coruseDetail/:id"
             render={(props) => <CourseDetails user={user} {...props} />}
           />
+          //***********************************************************/
           <Route
             path="/contentDetail/:id"
             render={(props) => <ContentDetails {...props} />}
