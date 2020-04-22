@@ -13,10 +13,10 @@ function DemoFooter() {
           >
             <i className="fa fa-github"></i>
           </a>
-          <a className="social-icon social-icon--linkedin" href="">
+          <a className="social-icon social-icon--linkedin" href="https://www.linkedin.com/in/sarah-althobaiti-607420198/">
             <i className="fa fa-linkedin"></i>
           </a>
-          <a className="social-icon social-icon--twitter" href="">
+          <a className="social-icon social-icon--twitter" href="https://twitter.com/hananalsahli02">
             <i className="fa fa-twitter"></i>
           </a>
         </ul>

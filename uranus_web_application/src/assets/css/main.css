@@ -49,7 +49,7 @@
 
 /* home page */
 .about-text {
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 400;
   margin: 0;
   color: #d9d9d9;
@@ -58,6 +58,7 @@
 .about-container {
   max-width: 70%;
   margin: 0 auto;
+  padding-top: 2em;
   position: relative;
   text-align: center;
   color: #ffffff;
@@ -65,8 +66,8 @@
 }
 
 .title {
-  font-size: 2em;
-  font-weight: 500;
+  font-size: 5em;
+  font-weight: 600;
   margin: 0;
   color: #adebeb;
   margin-bottom: 3%;
