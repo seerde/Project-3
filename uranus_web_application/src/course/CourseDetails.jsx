@@ -46,8 +46,6 @@ export default class CourseDetails extends Component {
     } = this.state.courseDet;
     let editButtons = null;
     if (this.props.user && teacher) {
-      console.log("teacher", teacher);
-      console.log(`T: ${teacher._id} U: ${this.props.user._id}`);
       editButtons =
         teacher._id === this.props.user._id ? (
           <>

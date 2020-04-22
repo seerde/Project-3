@@ -47,6 +47,8 @@ function IndexNavbar(props) {
   const authNavDetails = props.user ? (
     <>
       <Nav navbar>
+      {props.user.userType === "teacher" ? (
+      <>
         <NavItem>
           <Link to="/MyInformationTeacher">
             <Button className="btn-round" color="danger" href="#pablo">
@@ -54,6 +56,17 @@ function IndexNavbar(props) {
             </Button>
           </Link>
         </NavItem>
+        </> ) : (
+      <>
+      <NavItem>
+          <Link to="/MyInformationStudent">
+            <Button className="btn-round" color="danger" href="#pablo">
+              {props.user.firstName}
+            </Button>
+          </Link>
+        </NavItem>
+      </> 
+      ) }
         <NavItem>
           <Link to="/logout">
             <Button className="btn-round" color="danger" href="#pablo">
