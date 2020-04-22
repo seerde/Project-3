@@ -22,6 +22,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/course", require("./routes/course.routes"));
 app.use("/api/content", require("./routes/content.routes"));
+app.use("/admin", require("./routes/admin.route"));
 
 // 404 Routes
 //===================

@@ -59,6 +59,7 @@ export default class CourseDetails extends Component {
           </div>
         ) : null;
     }
+
     let contentsArray = [];
     if (contents) {
       contentsArray = contents.map((content) => {
