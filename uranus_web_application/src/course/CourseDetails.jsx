@@ -16,6 +16,39 @@ export default class CourseDetails extends Component {
   state = {
     courseDet: {},
   };
+ 
+  addCourse = () => {
+    let token = localStorage.getItem("token");
+    Axios.post(
+      `http://localhost:3005/api/course/studentadd/${this.props.match.params.id}`,
+      this.props.user,
+      { headers: { "x-auth-token": token } }
+    )
+
+    .then((res) => {
+      this.props.history.push("/MyInformationStudent");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  removeCourse = () => {
+    let token = localStorage.getItem("token");
+    Axios.delete(
+      `http://localhost:3005/api/course/removeadd/${this.props.match.params.id}`,
+      { headers: { "x-auth-token": token } }
+    )
+
+    .then((res) => {
+      this.props.history.push("/MyInformationStudent");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+  
+  
 
   componentDidMount() {
     console.log(this.props);
@@ -44,7 +77,10 @@ export default class CourseDetails extends Component {
       students,
       contents,
     } = this.state.courseDet;
+
     let editButtons = null;
+    let addButton=null;
+    let removeButton=null;
     if (this.props.user && teacher) {
       editButtons =
         teacher._id === this.props.user._id ? (
@@ -55,7 +91,18 @@ export default class CourseDetails extends Component {
               Add Content
             </Button>
           </>
-        ) : null;
+        ) : null 
+
+           
+        addButton = this.props.user.userType == "student" ? (<> 
+           <Button onClick={this.addCourse}>Enroll</Button>
+        </>):null
+
+        removeButton = this.props.user.userType == "student" ? (<> 
+           <Button onClick={this.removeCourse}>Remove</Button>
+        </>):null
+        
+        
     }
 
     let contentsArray = [];
@@ -80,6 +127,8 @@ export default class CourseDetails extends Component {
           <Container className="course__container">
             <Jumbotron className="course__card">
               {editButtons}
+              {addButton}
+              {removeButton}
               <h1>{courseName}</h1>
               <h3>Major</h3>
               <p>{major}</p>

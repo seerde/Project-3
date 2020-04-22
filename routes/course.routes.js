@@ -69,6 +69,98 @@ router.post("/add", isLoggedIn, async (req, res) => {
   }
 });
 
+/////////////////////////////////
+
+
+router.post("/studentadd/:id",isLoggedIn,async (req,res)=>{
+
+  try{
+
+    console.log(req.body)
+
+    let course = await Courses.findById(req.params.id);
+
+    let user = await User.findById(req.body._id)
+
+    user.courses.push(course)
+
+    course.students.push(user)
+
+    let courseSaved = await course.save();
+
+    let userSaved = await user.save()
+
+
+    res.json({ course: courseSaved, user: userSaved }).status(200);
+
+  }catch (err) {
+    res.json({ message: "course is unavailable" }).status(400);
+  }
+})
+
+
+
+
+router.delete("/removeadd/:id",isLoggedIn,async (req,res)=>{
+
+  try{
+
+    // console.log(req.body)
+    
+    let course = await Courses.findById(req.params.id);
+
+    let user = await User.findById(req.body._id)
+
+  //  let coureDelete = user.courses.remove(course)
+
+  //  let studentDelete =  course.students.remove(user)
+
+    console.log(req.params.id)
+   let newCoursesArray = user.courses
+   .map((course) => {
+     return course._id.toString() !== req.params.id.toString()
+       ? course
+       : null;
+   })
+   .filter((e) => e);
+
+  //  console.log(newCoursesArray)
+
+   user.courses = newCoursesArray;
+
+   let userCourseDeleted = await user.save();
+
+ ///////////////
+
+ let newStudentArray = course.students
+   .map((student) => {
+     return course._id.toString() !== req.params.id.toString()
+       ? student
+       : null;
+   })
+   .filter((e) => e);
+
+   
+   course.students = newStudentArray;
+
+   let CourseUserDeleted = await course.save();
+
+
+    // let courseSaved = await course.save();
+
+    // let userSaved = await user.save()
+
+
+    res.json({ message: "course deleted!",userCourseDeleted,
+                message: "student deleted!",CourseUserDeleted}).status(200);
+
+  }catch (err) {
+    res.json({ message: "course is unavailable" }).status(400);
+  }
+})
+
+
+
 router.put("/update/:id", isLoggedIn, async (req, res) => {
   let { courseName, major, link, description, duration } = req.body;
   try {
