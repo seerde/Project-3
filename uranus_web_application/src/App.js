@@ -9,6 +9,7 @@ import Navb from "./navbar/Navb";
 import PrivateRoute from "./PrivateRoute";
 import Logout from "./user/Logout";
 import MyInformationTeacher from "./user/MyInformationTeacher";
+import MyInformationStudent from "./user/MyInformationStudent";
 import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
@@ -115,6 +116,15 @@ export default class App extends Component {
             logout={this.logoutHandler}
             redirectTo="/login"
             component={MyInformationTeacher}
+          />
+          <PrivateRoute
+            exact
+            path="/MyInformationStudent"
+            isLogin={isLogin}
+            user={user}
+            logout={this.logoutHandler}
+            redirectTo="/login"
+            component={MyInformationStudent}
           />
           <PrivateRoute
             exact
