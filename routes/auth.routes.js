@@ -143,6 +143,28 @@ router.put("/updateteacher/:id", isLoggedIn, async (req, res) => {
   //
 });
 
+
+router.put("/updatestudent/:id", isLoggedIn, async (req, res) => {
+  let inputUser = { ...req.body };
+
+  try {
+    let user = await User.findById(req.params.id);
+
+    user.firstName = inputUser.firstName;
+    user.lastName = inputUser.lastName;
+
+    let userSaved = await user.save();
+
+    if (!userSaved) throw error;
+
+    res.status(200).json({ message: "User Updated!", userSaved });
+  } catch (error) {
+    res.status(400).json({ message: "something went wrong!" });
+  }
+  //
+});
+
+
 router.put("/updatepassword/:id", isLoggedIn, async (req, res) => {
   let inputUser = { ...req.body };
 
