@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import {
-  Container,
-  Tab,
-  Tabs,
-} from "react-bootstrap";
+import { Container, Tab, Tabs } from "react-bootstrap";
 import { EditInformationsTeacher } from "./EditInformationsTeacher";
 import Information from "./Information";
 import Editpassword from "./Editpassword";

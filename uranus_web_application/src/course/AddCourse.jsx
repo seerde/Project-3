@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Form,
-  Row,
-  Col,
-  Button,
-} from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import "../assets/css/main.css";
 import Axios from "axios";
 
@@ -26,7 +21,7 @@ export const AddCourse = (props) => {
         { headers: { "x-auth-token": token } }
       );
       console.log(courseAdded);
-      props.history.push("/MyInformationTeacher");//*****************************************/
+      props.history.push("/MyInformationTeacher"); //*****************************************/
     } catch (err) {
       console.log(err);
     }
@@ -53,8 +48,10 @@ export const AddCourse = (props) => {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridLastName">
                 <Form.Label>Major</Form.Label>
-                <select //*****************************************************************/
+                <Form.Control
                   className="input-select"
+                  as="select"
+                  custom
                   name="major"
                   onChange={(e) => onChangeInput(e)}
                 >
@@ -66,7 +63,7 @@ export const AddCourse = (props) => {
                   <option value="sciences">Sciences</option>
                   <option value="design">Design</option>
                   <option value="physics">Physics</option>
-                </select>
+                </Form.Control>
               </Form.Group>
             </Form.Row>
             <Form.Row>

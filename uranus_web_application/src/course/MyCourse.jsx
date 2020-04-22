@@ -54,8 +54,8 @@ export default class MyCourse extends Component {
     });
     return (
       <div>
-        <Container>
-          <Row className="scrollable">{cards}</Row>
+        <Container className="course__card">
+          <Row>{cards}</Row>
         </Container>
       </div>
     );
