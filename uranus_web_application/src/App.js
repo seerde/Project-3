@@ -14,6 +14,7 @@ import { Login } from "./user/Login.jsx";
 import { SignUpTeacher } from "./user/SignUpTeacher";
 import { SignUpStudent } from "./user/SignUpStudent";
 import { AddCourse } from "./course/AddCourse";
+import { EditCourse } from "./course/EditCourse";
 import AllCourse from "./course/AllCourse";
 import CourseDetails from "./course/CourseDetails";
 import ContentDetails from "./content/ContentDetails";
@@ -92,6 +93,7 @@ export default class App extends Component {
             )}
           />
           <Route path="/course/add" component={AddCourse} />
+          <Route path="/course/update/:id" component={EditCourse} />
           <Route path="/register" component={Register} />
           <Route path="/allcourse">
             <AllCourse filter={this.state.filter} />

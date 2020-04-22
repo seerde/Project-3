@@ -49,13 +49,15 @@ export default class CourseDetails extends Component {
       editButtons =
         teacher._id === this.props.user._id ? (
           <>
-            <Button>Edit Course</Button>
+            <Button href={`/course/update/${this.props.match.params.id}`}>Edit Course</Button>
+
             <Button href={`/content/add/${this.props.match.params.id}`}>
               Add Content
             </Button>
           </>
         ) : null;
     }
+
     let contentsArray = [];
     if (contents) {
       contentsArray = contents.map((content) => {
