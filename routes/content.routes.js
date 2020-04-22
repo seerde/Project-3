@@ -102,7 +102,7 @@ router.put("/update/:id", isLoggedIn, async (req, res) => {
 
     let contentUpdated = await content.save();
 
-    res.json({ contentUpdated }).status(200);
+    res.json({ contentUpdated }).status(200);// send result from api
   } catch (err) {
     res.json({ message: "unable to update content!", err: err }).status(400);
   }

@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {
-  Button,
-  Card,
   Form,
-  Input,
-  Container,
   Row,
   Col,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
+  Button,
+} from "react-bootstrap";
 import "../assets/css/main.css";
 import Axios from "axios";
 
@@ -33,7 +26,7 @@ export const AddCourse = (props) => {
         { headers: { "x-auth-token": token } }
       );
       console.log(courseAdded);
-      props.history.push("/MyInformationTeacher");
+      props.history.push("/MyInformationTeacher");//*****************************************/
     } catch (err) {
       console.log(err);
     }
@@ -42,81 +35,75 @@ export const AddCourse = (props) => {
   //api/course/add
   return (
     <div>
-      <div
-        className="page-header"
-        style={{
-          backgroundImage:
-            "url(" + require("../assets/img/background2.jpg") + ")",
-        }}
-      >
-        <div className="filter" />
-        <Container>
-          <Row>
-            <Col className="ml-auto mr-auto" lg="4">
-              <Card className="card-register ml-auto mr-auto">
-                <h3 className="title mx-auto">Add Course</h3>
-                <Form className="register-form">
-                  <label>Course Name</label>
-                  <Input
-                    className="input-select"
-                    placeholder="Course Name"
-                    type="text"
-                    name="courseName"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <label>Major</label>
-                  <select
-                    className="input-select"
-                    name="major"
-                    onChange={(e) => onChangeInput(e)}
-                  >
-                    <option value="math">Math</option>
-                    <option value="computer science">Computer Science</option>
-                    <option value="history">History</option>
-                    <option value="chemistry">Chemistry</option>
-                    <option value="psychology">Psychology</option>
-                    <option value="sciences">Sciences</option>
-                    <option value="design">Design</option>
-                    <option value="physics">Physics</option>
-                  </select>
-
-                  <label>Duration</label>
-                  <Input
-                    placeholder="Duration"
-                    name="duration"
-                    type="number"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-
-                  <label>Description</label>
-                  <Input
-                    placeholder="Description"
-                    as="textarea"
-                    name="description"
-                    onChange={(e) => onChangeInput(e)}
-                  />
-                  <Button
-                    block
-                    className="btn-round"
-                    color="danger"
-                    type="submit"
-                    onClick={(e) => onSubmit(e)}
-                  >
-                    Add Course
-                  </Button>
-                </Form>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-        <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()}, made with{" "}
-            <i className="fa fa-heart heart" /> by Uranus Group
-          </h6>
-        </div>
-      </div>
+      <Form className="mt-5">
+        <Row className="justify-content-center mt-5">
+          <Col md={8}>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridFirstName">
+                <Form.Label>Course Name</Form.Label>
+                <Form.Control
+                  className="input-select"
+                  placeholder="Course Name"
+                  type="text"
+                  name="courseName"
+                  onChange={(e) => onChangeInput(e)}
+                />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridLastName">
+                <Form.Label>Major</Form.Label>
+                <select //*****************************************************************/
+                  className="input-select"
+                  name="major"
+                  onChange={(e) => onChangeInput(e)}
+                >
+                  <option value="math">Math</option>
+                  <option value="computer science">Computer Science</option>
+                  <option value="history">History</option>
+                  <option value="chemistry">Chemistry</option>
+                  <option value="psychology">Psychology</option>
+                  <option value="sciences">Sciences</option>
+                  <option value="design">Design</option>
+                  <option value="physics">Physics</option>
+                </select>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridEducation">
+                <Form.Label>Duration</Form.Label>
+                <Form.Control
+                  placeholder="Duration"
+                  name="duration"
+                  type="number"
+                  onChange={(e) => onChangeInput(e)}
+                />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridEducation">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  placeholder="Description"
+                  as="textarea"
+                  name="description"
+                  onChange={(e) => onChangeInput(e)}
+                />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Button
+                className="button"
+                color="danger"
+                type="submit"
+                onClick={(e) => onSubmit(e)}
+              >
+                Add Course
+              </Button>
+            </Form.Row>
+          </Col>
+        </Row>
+      </Form>
     </div>
   );
 };
