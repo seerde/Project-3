@@ -90,7 +90,7 @@ function SectionJavaScript(props) {
                 <Card.Body>
                   <Card.Title>Sciences</Card.Title>
                   <Button
-                    name="chemistry"
+                    name="sciences"
                     onClick={handleShowCourses}
                     variant="primary"
                   >
