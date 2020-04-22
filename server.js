@@ -11,9 +11,25 @@ const app = express();
 //=================
 require("./config/db");
 
+// CORS
+// ===============
+var whitelist = ["http://localhost:3000", "http://example2.com"];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      var message =
+        "The CORS policy for this application does not allow access from origin " +
+        origin;
+      callback(new Error(message), false);
+    }
+  },
+};
+
 // middlewares npm i cors
 // ===============
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // => = > == = =

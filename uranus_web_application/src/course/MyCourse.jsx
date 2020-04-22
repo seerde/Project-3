@@ -31,7 +31,7 @@ export default class MyCourse extends Component {
     const cards = this.state.courses.map((course) => {
       return (
         <Col md={4}>
-          <Card>
+          <Card className="justify-content-center mb-5">
             {/* <Card.Img
               variant="top"
               src="https://place-hold.it/100x180"
@@ -40,6 +40,7 @@ export default class MyCourse extends Component {
               <Card.Title>{course.courseName}</Card.Title>
               <Card.Text>{course.description}</Card.Text>
               <Button
+                style={{ backgroundColor: "#f5593d" }}
                 as={Link}
                 to={"/coruseDetail/" + course._id}
                 variant="primary"
@@ -53,8 +54,8 @@ export default class MyCourse extends Component {
     });
     return (
       <div>
-        <Container>
-          <Row className="scrollable">{cards}</Row>
+        <Container className="course__card">
+          <Row>{cards}</Row>
         </Container>
       </div>
     );

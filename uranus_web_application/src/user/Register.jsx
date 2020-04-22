@@ -52,7 +52,7 @@ export default function Register(props) {
             <Col
               className="justify-content-center"
               md={8}
-              style={{ zIndex: "1" }}
+              style={{ zIndex: "1", marginTop: "10%" }}
             >
               <Button
                 className="mr-3"
@@ -70,10 +70,7 @@ export default function Register(props) {
           <Switch>{display}</Switch>
         </Container>
         <div className="footer register-footer text-center">
-          <h6>
-            © {new Date().getFullYear()}, made with{" "}
-            <i className="fa fa-heart heart" /> by Uranus Group
-          </h6>
+          <h6>© {new Date().getFullYear()}, made by Uranus Group</h6>
         </div>
       </div>
     </>

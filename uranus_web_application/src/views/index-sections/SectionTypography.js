@@ -19,7 +19,7 @@ function SectionTypography() {
             <div className="about-container">
               <h1 className="title">About</h1>
               <h1 className="about-text">
-                Our purpose is Increased access to high-quality education for
+                Our purpose is Increased access to <br></br> high-quality education for
                 everyone, everywhere and enhance teaching and learning online
               </h1>
             </div>

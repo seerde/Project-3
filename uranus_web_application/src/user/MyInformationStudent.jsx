@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Container, Row, Col, Button, Tab, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Button, Tab, Tabs, ListGroup } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import { EditInformationsStudent } from "./EditInformationsStudent";
 import Information from "./Information";
@@ -40,7 +40,7 @@ export default class MyInformationStudent extends Component {
       >
         <div className="dashboard">
           <h1 className="dashboard-title">Dashboard</h1>
-          <Container className="information__container">
+          {/* <Container className="information__container">
             <Tab.Container
               id="list-group-tabs-example"
               defaultActiveKey="#link1"
@@ -80,7 +80,31 @@ export default class MyInformationStudent extends Component {
                 </Col>
               </Row>
             </Tab.Container>
+          </Container> */}
+          <Container className="information__container">
+            <Tabs
+              className="nav nav-tabs nav-justified mb-5"
+              defaultActiveKey="#link4"
+            >
+              <Tab
+                className="dashboard"
+                eventKey="#link1"
+                title="My Information"
+              >
+                <Information user={user} />
+              </Tab>
+              <Tab eventKey="#link2" title="Update Information">
+                <EditInformationsStudent user={user} logout={logout} />
+              </Tab>
+              <Tab eventKey="#link3" title="Change Email and Password">
+                <Editpassword user={user} logout={logout} />
+              </Tab>
+              <Tab eventKey="#link4" title="Show Courses">
+                <MyCourse user={user} />
+              </Tab>
+            </Tabs>
           </Container>
+          <span className="copyright">© 2020, made by Uranus Group</span>
         </div>
       </div>
     );

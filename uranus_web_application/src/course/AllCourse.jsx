@@ -31,6 +31,7 @@ export default class AllCourse extends Component {
               <Card.Title>{course.courseName}</Card.Title>
               <Card.Text>{course.description}</Card.Text>
               <Button
+                style={{ backgroundColor: "#f5593d", width: "10rem" }}
                 as={Link}
                 to={"/coruseDetail/" + course._id}
                 variant="primary"
@@ -47,6 +48,7 @@ export default class AllCourse extends Component {
               <Card.Title>{course.courseName}</Card.Title>
               <Card.Text>{course.description}</Card.Text>
               <Button
+                style={{ backgroundColor: "#f5593d", width: "10rem" }}
                 as={Link}
                 to={"/coruseDetail/" + course._id}
                 variant="primary"

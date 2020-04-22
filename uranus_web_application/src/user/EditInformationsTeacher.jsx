@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Row, Form, Col, Button, Alert } from "react-bootstrap";
 import Axios from "axios";
 
@@ -31,10 +31,7 @@ export const EditInformationsTeacher = (props) => {
 
   //==================================================
   return (
-    <>
-      {register && (
-        <Alert variant={"danger"}>the email used . plz change the email</Alert>
-      )}
+    <div>
       <Form className="mt-5">
         <Row className="justify-content-center mt-5">
           <Col md={8}>
@@ -71,12 +68,19 @@ export const EditInformationsTeacher = (props) => {
                 />
               </Form.Group>
             </Form.Row>
-            <Button variant="primary" onClick={update} block>
-              Update
-            </Button>
+            <Form.Row>
+              <Button
+                className="button"
+                variant="primary"
+                onClick={update}
+                block
+              >
+                Update Information
+              </Button>
+            </Form.Row>
           </Col>
         </Row>
       </Form>
-    </>
+    </div>
   );
 };

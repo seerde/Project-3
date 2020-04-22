@@ -84,10 +84,12 @@ export default class CourseDetails extends Component {
     if (this.props.user && teacher) {
       editButtons =
         teacher._id === this.props.user._id ? (
-          <>
-            <Button href={`/course/update/${this.props.match.params.id}`}>Edit Course</Button>
-
-            <Button href={`/content/add/${this.props.match.params.id}`}>
+          <div className="course-details-button">
+            <Button className="button">Edit Course</Button>
+            <Button
+              className="button"
+              href={`/content/add/${this.props.match.params.id}`}
+            >
               Add Content
             </Button>
           </>
@@ -125,7 +127,7 @@ export default class CourseDetails extends Component {
           }}
         >
           <Container className="course__container">
-            <Jumbotron className="course__card">
+            <Jumbotron className="course__card2">
               {editButtons}
               {addButton}
               {removeButton}
