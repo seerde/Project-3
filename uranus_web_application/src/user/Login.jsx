@@ -23,10 +23,10 @@ export const Login = (props) => {
           props.userLogin();
           props.history.push("/home");
         } else {
-           setIsLogin(true);
-           setTimeout(() => {
-             setIsLogin(false);
-           }, 4000);
+          setIsLogin(true);
+          setTimeout(() => {
+            setIsLogin(false);
+          }, 4000);
           console.log("email or password not correct");
         }
       })
@@ -39,40 +39,6 @@ export const Login = (props) => {
           the email used . please change the email
         </Alert>
       )}
-      {/* <Form className="mt-5">
-        <Row className="justify-content-center mt-5">
-          <Col md={8}>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  name="email"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  onChange={(e) => onChangeInput(e)}
-                />
-              </Form.Group>
-            </Form.Row>
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={(e) => onSubmit(e)}
-            >
-              Submit
-            </Button>
-          </Col>
-        </Row>
-      </Form> */}
 
       <div
         className="page-header"
@@ -118,7 +84,9 @@ export const Login = (props) => {
             </Col>
           </Row>
         </Container>
-        <span className="copyright">© 2020, made by Uranus Group</span>
+        <div className="footer register-footer text-center">
+          <h6>© {new Date().getFullYear()}, made by Uranus Group</h6>
+        </div>
       </div>
     </>
   );

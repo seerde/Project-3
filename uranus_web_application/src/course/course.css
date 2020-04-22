@@ -10,6 +10,11 @@
   height: 450px;
 }
 
+.course__card2 {
+  overflow: auto;
+  height: 80vh;
+}
+
 .course-details-button {
   text-align: center;
 }

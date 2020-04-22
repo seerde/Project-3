@@ -80,7 +80,7 @@ export default class CourseDetails extends Component {
           }}
         >
           <Container className="course__container">
-            <Jumbotron className="course__card">
+            <Jumbotron className="course__card2">
               {editButtons}
               <h3>Course Name</h3>
               <p>{courseName}</p>
