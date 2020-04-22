@@ -16,11 +16,15 @@
 .card-register .btn {
   margin-top: 30px;
 }
-.card-register .forgot {
-  text-align: center;
-}
+
 .card-register .input-group-text {
   border: 1px solid #ffffff;
+}
+
+.input-select{
+  border: 1px solid #ffffff;
+  height: 40px;
+  width: 80%
 }
 
 .card-plain {
