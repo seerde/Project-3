@@ -28,8 +28,7 @@ function DemoFooter() {
           </a>
         </ul>
         <span className="copyright">
-          © 2020, made with
-          <i className="fa fa-heart heart" /> by Uranus Group
+          © 2020, made by Uranus Group
         </span>
       </div>
     </footer>
