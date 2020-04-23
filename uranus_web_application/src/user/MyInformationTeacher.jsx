@@ -15,7 +15,7 @@ export default class MyInformationTeacher extends Component {
 
   componentDidMount() {
     console.log("user", this.props);
-    Axios.get(`http://localhost:3005/api/auth/${this.props.user._id}`)
+    Axios.get(`/api/auth/${this.props.user._id}`)
       .then((res) =>
         this.setState({
           teacherInfo: res.data.user,

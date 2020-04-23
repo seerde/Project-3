@@ -19,7 +19,7 @@ export default class CourseDetails extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    Axios.get(`http://localhost:3005/api/course/${this.props.match.params.id}`)
+    Axios.get(`/api/course/${this.props.match.params.id}`)
 
       .then((res) => {
         this.setState({

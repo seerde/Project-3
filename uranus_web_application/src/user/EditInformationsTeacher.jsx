@@ -13,7 +13,7 @@ export const EditInformationsTeacher = (props) => {
 
     try {
       let userUpdated = await Axios.put(
-        `http://localhost:3005/api/auth/updateteacher/${props.user._id}`,
+        `/api/auth/updateteacher/${props.user._id}`,
         user,
         { headers: { "x-auth-token": token } }
       );

@@ -14,9 +14,7 @@ export default class MyCourse extends Component {
 
   loadCourses = async () => {
     try {
-      let courses = await Axios.get(
-        `http://localhost:3005/api/course/user/${this.props.user._id}`
-      );
+      let courses = await Axios.get(`/api/course/user/${this.props.user._id}`);
 
       console.log("courses", courses.data.courses);
       this.setState({

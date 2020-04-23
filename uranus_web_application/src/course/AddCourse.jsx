@@ -15,11 +15,9 @@ export const AddCourse = (props) => {
     let token = localStorage.getItem("token");
 
     try {
-      let courseAdded = await Axios.post(
-        `http://localhost:3005/api/course/add`,
-        course,
-        { headers: { "x-auth-token": token } }
-      );
+      let courseAdded = await Axios.post(`/api/course/add`, course, {
+        headers: { "x-auth-token": token },
+      });
       console.log(courseAdded);
       window.location.reload(); //*****************************************/
     } catch (err) {

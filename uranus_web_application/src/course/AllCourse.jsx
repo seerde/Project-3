@@ -11,7 +11,7 @@ export default class AllCourse extends Component {
 
   componentDidMount() {
     this.setState({ filter: this.props.filter });
-    Axios.get(`http://localhost:3005/api/course/`)
+    Axios.get(`/api/course/`)
       .then((res) =>
         this.setState({
           allcourse: res.data.courses,

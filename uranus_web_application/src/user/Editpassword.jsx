@@ -11,7 +11,7 @@ export default function Editpassword(props) {
     let token = localStorage.getItem("token");
     try {
       let passwordUpdated = await Axios.put(
-        `http://localhost:3005/api/auth/updatepassword/${props.user._id}`,
+        `/api/auth/updatepassword/${props.user._id}`,
         user,
         { headers: { "x-auth-token": token } }
       );
@@ -71,9 +71,14 @@ export default function Editpassword(props) {
               </Form.Group>
             </Form.Row>
             <Form.Row>
-            <Button className="button" variant="primary" onClick={update} block>
-              Update
-            </Button>
+              <Button
+                className="button"
+                variant="primary"
+                onClick={update}
+                block
+              >
+                Update
+              </Button>
             </Form.Row>
           </Col>
         </Row>

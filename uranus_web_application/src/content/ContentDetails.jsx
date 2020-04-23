@@ -20,9 +20,7 @@ export default class ContentDetails extends Component {
     },
   };
   componentDidMount() {
-    Axios.get(
-      `http://localhost:3005/api/content/show/${this.props.match.params.id}`
-    )
+    Axios.get(`/api/content/show/${this.props.match.params.id}`)
       .then((res) => {
         console.log(res.data);
         this.setState({

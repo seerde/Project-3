@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Container, Row, Col, Button, Tab, Tabs, ListGroup } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Tab,
+  Tabs,
+  ListGroup,
+} from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import { EditInformationsStudent } from "./EditInformationsStudent";
 import Information from "./Information";
@@ -16,7 +24,7 @@ export default class MyInformationStudent extends Component {
 
   componentDidMount() {
     console.log("user", this.props);
-    Axios.get(`http://localhost:3005/api/auth/${this.props.user._id}`)
+    Axios.get(`/api/auth/${this.props.user._id}`)
       .then((res) =>
         this.setState({
           studentInfo: res.data.user,

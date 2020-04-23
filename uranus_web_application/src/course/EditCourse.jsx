@@ -17,11 +17,11 @@ export const EditCourse = (props) => {
 
     try {
       let courseAdded = await Axios.put(
-        `http://localhost:3005/api/course/update/${props.match.params.id}`,
+        `/api/course/update/${props.match.params.id}`,
         course,
         { headers: { "x-auth-token": token } }
       );
-    //   console.log(courseAdded);
+      //   console.log(courseAdded);
       props.history.push(`/coruseDetail/${props.match.params.id}`);
     } catch (err) {
       console.log(err);

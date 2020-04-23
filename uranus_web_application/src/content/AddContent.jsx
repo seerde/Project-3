@@ -27,7 +27,7 @@ export const AddContent = (props) => {
     console.log("content", content);
     try {
       let contentAdded = await Axios.post(
-        `http://localhost:3005/api/content/add/${props.match.params.id}`,
+        `/api/content/add/${props.match.params.id}`,
         content,
         {
           headers: {
